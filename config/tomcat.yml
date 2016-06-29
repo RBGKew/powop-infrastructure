@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tomcat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: eu.gcr.io/powop-1349/tomcat:latest
+          ports:
+            - containerPort: 8009
