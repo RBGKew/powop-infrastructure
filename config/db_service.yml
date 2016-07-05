@@ -4,6 +4,6 @@ metadata:
   name: db
 spec:
   selector:
-    name: portal-db
+    name: db
   ports:
     - port: 3306

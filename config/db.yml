@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: portal-db
+  name: db
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: portal-db
+        name: db
     spec:
       containers:
-        - name: portal-db
+        - name: db
           image: eu.gcr.io/powop-1349/db:latest
           ports:
             - containerPort: 3306
