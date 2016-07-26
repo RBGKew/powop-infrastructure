@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: tomcat
+  name: portal
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: tomcat
+        name: portal
     spec:
       containers:
-        - name: tomcat
-          image: eu.gcr.io/powop-1349/tomcat:latest
+        - name: portal
+          image: eu.gcr.io/powop-1349/portal:latest
           ports:
             - containerPort: 8009

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: harvester
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: harvester
+    spec:
+      containers:
+        - name: harvester
+          image: eu.gcr.io/powop-1349/harvester:latest
+          ports:
+            - containerPort: 8009
