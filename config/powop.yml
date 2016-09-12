@@ -15,6 +15,9 @@ spec:
           image: eu.gcr.io/powop-1349/db:latest
           ports:
             - containerPort: 3306
+          volumeMounts:
+            - name: db-data
+              mountPath: /var/lib/mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
@@ -36,6 +39,10 @@ spec:
                 secretKeyRef:
                   name: db-secrets
                   key: mysql-password
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-data-claim
 ---
 apiVersion: v1
 kind: Service
@@ -235,6 +242,13 @@ spec:
           image: eu.gcr.io/powop-1349/solr:latest
           ports:
             - containerPort: 8983
+          volumeMounts:
+            - name: solr-data
+              mountPath: /opt/solr/server/solr/powop/data
+      volumes:
+        - name: solr-data
+          persistentVolumeClaim:
+            claimName: solr-data-claim
 ---
 apiVersion: v1
 kind: Service
