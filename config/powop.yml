@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: db
-          image: eu.gcr.io/powop-1349/db:latest
+          image: eu.gcr.io/powop-1349/db:1.1.3-SNAPSHOT
           ports:
             - containerPort: 3306
           volumeMounts:
@@ -69,7 +69,7 @@ spec:
     spec:
       containers:
         - name: geodb
-          image: eu.gcr.io/powop-1349/geodb:latest
+          image: eu.gcr.io/powop-1349/geodb:1.1.3-SNAPSHOT
           ports:
             - containerPort: 3306
           env:
@@ -121,7 +121,7 @@ spec:
     spec:
       containers:
         - name: portal
-          image: eu.gcr.io/powop-1349/portal:latest
+          image: eu.gcr.io/powop-1349/portal:1.1.3-SNAPSHOT
           ports:
             - containerPort: 8009
 ---
@@ -150,7 +150,7 @@ spec:
     spec:
       containers:
         - name: harvester
-          image: eu.gcr.io/powop-1349/harvester:latest
+          image: eu.gcr.io/powop-1349/harvester:1.1.3-SNAPSHOT
           ports:
             - containerPort: 8009
 ---
@@ -179,7 +179,7 @@ spec:
     spec:
       containers:
         - name: activemq
-          image: eu.gcr.io/powop-1349/geoserver:latest
+          image: eu.gcr.io/powop-1349/geoserver:1.1.3-SNAPSHOT
           ports:
             - containerPort: 8009
 ---
@@ -208,7 +208,7 @@ spec:
     spec:
       containers:
         - name: apache
-          image: eu.gcr.io/powop-1349/apache:latest
+          image: eu.gcr.io/powop-1349/apache:1.1.3-SNAPSHOT
           ports:
             - containerPort: 80
 ---
@@ -239,7 +239,7 @@ spec:
     spec:
       containers:
         - name: solr
-          image: eu.gcr.io/powop-1349/solr:latest
+          image: eu.gcr.io/powop-1349/solr:1.1.3-SNAPSHOT
           ports:
             - containerPort: 8983
           volumeMounts:
