@@ -1,0 +1,74 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: geodb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: geodb
+    spec:
+      containers:
+        - name: geodb
+          image: eu.gcr.io/powop-1349/geodb:{{ .Values.geoserver.version }}
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: geo-db-secrets
+                  key: mysql-root-password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: geo-db-secrets
+                  key: mysql-database
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: geo-db-secrets
+                  key: mysql-user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: geo-db-secrets
+                  key: mysql-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: geodb
+spec:
+  selector:
+    name: geodb
+  ports:
+    - port: 3306
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: geoserver
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: geoserver
+    spec:
+      containers:
+        - name: geoserver
+          image: eu.gcr.io/powop-1349/geoserver:{{ .Values.geoserver.version }}
+          ports:
+            - containerPort: 8009
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: geoserver
+spec:
+  selector:
+    name: geoserver
+  ports:
+    - port: 8009

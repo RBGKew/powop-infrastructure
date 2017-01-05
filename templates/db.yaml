@@ -1,0 +1,71 @@
+# Portal database
+{{- if not .Values.db.cloudsql.enabled }}
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: db
+    spec:
+      containers:
+        - name: db
+          image: eu.gcr.io/powop-1349/db:{{ .Values.db.version }}
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: db-data
+              mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: mysql-root-password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: mysql-database
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: mysql-user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: mysql-password
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-data-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  selector:
+    name: db
+  ports:
+    - port: 3306
+---
+# Mysql
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-data-claim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: {{ .Values.db.storage.type | quote }}
+spec:
+  resources:
+    requests:
+      storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+{{- end }}

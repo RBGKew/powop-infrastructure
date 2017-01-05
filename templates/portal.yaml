@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: portal
+spec:
+  replicas: {{ .Values.portal.replicas }}
+  template:
+    metadata:
+      labels:
+        name: portal
+    spec:
+      containers:
+        - name: portal
+          image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
+          ports:
+            - containerPort: 8009
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 20
+            timeoutSeconds: 1
+{{- if .Values.db.cloudsql.enabled }}
+{{- template "cloudsql_proxy" . }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portal
+spec:
+  selector:
+    name: portal
+  ports:
+    - port: 8009

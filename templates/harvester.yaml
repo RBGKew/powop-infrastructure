@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: harvester
+spec:
+  replicas: {{ .Values.harvester.replicas }}
+  template:
+    metadata:
+      labels:
+        name: harvester
+    spec:
+      containers:
+        - name: harvester
+          image: eu.gcr.io/powop-1349/harvester:1.1.3-SNAPSHOT-76bc9cf
+          ports:
+            - containerPort: 8009
+{{- if .Values.db.cloudsql.enabled }}
+{{- template "cloudsql_proxy" . }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: harvester
+spec:
+  selector:
+    name: harvester
+  ports:
+    - port: 8009

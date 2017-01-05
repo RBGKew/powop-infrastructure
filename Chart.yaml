@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Kubernetes configuration for the Plants of the World Online Portal
+name: powop-infrastructure
+version: 0.1.0
+home: https://github.com/RBGKew/powop-infrastructure
+sources:
+  - https://github.com/RBGKew/powop
+maintainers:
+  - name: John Iacona
+    email: j.iacona@kew.org
+  - name: James Crowe
+    email: james.crowe@kew.org
