@@ -20,7 +20,17 @@ spec:
               port: 8080
             initialDelaySeconds: 20
             timeoutSeconds: 1
+          env:
+{{- if .Values.db.password }}
+            - name: JDBC_DRIVER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: jdbc-driver-password
+{{- end }}
 {{- if .Values.db.cloudsql.enabled }}
+            - name: JDBC_DRIVER_URL
+              value: jdbc:mysql://127.0.0.1:3306/emonocot
 {{- template "cloudsql_proxy" . }}
 {{- end }}
 ---

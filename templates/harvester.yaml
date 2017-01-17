@@ -11,10 +11,21 @@ spec:
     spec:
       containers:
         - name: harvester
-          image: eu.gcr.io/powop-1349/harvester:1.1.3-SNAPSHOT-76bc9cf
+          image: eu.gcr.io/powop-1349/harvester:{{ .Values.harvester.version }}
           ports:
             - containerPort: 8009
+          imagePullPolicy: Always
+          env:
+{{- if .Values.db.password }}
+            - name: JDBC_DRIVER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: jdbc-driver-password
+{{- end }}
 {{- if .Values.db.cloudsql.enabled }}
+            - name: JDBC_DRIVER_URL
+              value: jdbc:mysql://127.0.0.1:3306/emonocot
 {{- template "cloudsql_proxy" . }}
 {{- end }}
 ---

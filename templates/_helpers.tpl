@@ -17,9 +17,6 @@ We truncate at 24 chars because some Kubernetes name fields are limited to this 
 
 {{/* Include cloudsql proxy sidecar container */}}
 {{- define "cloudsql_proxy" }}
-          env:
-            - name: JDBC_DRIVER_URL
-              value: jdbc:mysql://127.0.0.1:3306/emonocot
         - name: cloudsql-proxy
           image: b.gcr.io/cloudsql-docker/gce-proxy:1.05
           command: ["/cloud_sql_proxy", "--dir=/cloudsql",
