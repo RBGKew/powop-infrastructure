@@ -14,6 +14,7 @@ spec:
           image: eu.gcr.io/powop-1349/apache:{{ .Values.apache.version }}
           ports:
             - containerPort: 80
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

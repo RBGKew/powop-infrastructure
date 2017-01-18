@@ -14,6 +14,7 @@ spec:
           image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
           ports:
             - containerPort: 8009
+          imagePullPolicy: Always
           readinessProbe:
             httpGet:
               path: /ping
