@@ -17,6 +17,12 @@ spec:
           volumeMounts:
             - name: solr-data
               mountPath: /opt/solr/server/solr/powop/data
+          readinessProbe:
+            httpGet:
+              path: /solr/powop/admin/ping
+              port: 8983
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
       securityContext:
         # fsGroup defines what user volumes are mounted as. Since solr runs as
         # an unprivileged  user, we have to make sure volumes are writeable

@@ -3,10 +3,16 @@ db:
   cloudsql:
     enabled: true
     connection: powop-1349:europe-west1:powop-prod-db
+geoserver:
+  version: 1.1.3-SNAPSHOT-b65656a
 portal:
-  version: 1.1.3-SNAPSHOT-3db62a7
+  version: 1.1.3-SNAPSHOT-0c3aec5
   replicas: 2
 harvester:
-  version: 1.1.3-SNAPSHOT-7b75632
+  version: 1.1.3-SNAPSHOT-ab280a4
 apache:
-  version: 1.1.3-SNAPSHOT-7b75632
+  version: 1.1.3-SNAPSHOT-ab280a4
+solr:
+  version: 1.1.3-SNAPSHOT-9a5ee0a
+  storage:
+    type: ssd
