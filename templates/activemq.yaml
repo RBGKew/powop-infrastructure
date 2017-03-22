@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         name: activemq
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: activemq

@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         name: apache
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: apache

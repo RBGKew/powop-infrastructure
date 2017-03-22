@@ -10,6 +10,7 @@ spec:
     metadata:
       labels:
         name: db
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: db

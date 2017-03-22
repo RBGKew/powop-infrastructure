@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         name: solr
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: solr
@@ -23,6 +24,7 @@ spec:
               port: 8983
             initialDelaySeconds: 10
             timeoutSeconds: 2
+          imagePullPolicy: Always
       securityContext:
         # fsGroup defines what user volumes are mounted as. Since solr runs as
         # an unprivileged  user, we have to make sure volumes are writeable

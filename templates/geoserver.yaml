@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         name: geodb
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: geodb
@@ -56,6 +57,7 @@ spec:
     metadata:
       labels:
         name: geoserver
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: geoserver

@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         name: portal
+        env: {{ .Release.Name }}
     spec:
       containers:
         - name: portal
