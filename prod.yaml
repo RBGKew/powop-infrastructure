@@ -6,12 +6,12 @@ db:
 geoserver:
   version: 1.1.3-SNAPSHOT-d5525b3
 portal:
-  version: 1.1.3-SNAPSHOT-af84739
+  version: 1.1.3-SNAPSHOT-9097725
   replicas: 2
 harvester:
   version: 1.1.3-SNAPSHOT-e75a3a7
 apache:
-  version: 1.1.3-SNAPSHOT-af84739
+  version: 1.1.3-SNAPSHOT-9097725
 solr:
   version: 1.1.3-SNAPSHOT-d5525b3
   storage:
