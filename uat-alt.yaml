@@ -1,0 +1,8 @@
+---
+db:
+  cloudsql:
+    enabled: true
+    connection: powop-1349:europe-west1:manageddb1
+  database: powo
+portal:
+  replicas: 2

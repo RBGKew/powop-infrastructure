@@ -12,21 +12,21 @@ db:
     size: 10
     onrelease: Delete
 geoserver:
-  version: 1.1.3-SNAPSHOT-923b4ff
+  version: 1.1.3-SNAPSHOT-51c4049
   replicas: 1
   database: gis
   user: geoserver
 portal:
-  version: 1.1.3-SNAPSHOT-80ae6b4
+  version: 1.1.3-SNAPSHOT-51c4049
   replicas: 1
 harvester:
-  version: 1.1.3-SNAPSHOT-80ae6b4
+  version: 1.1.3-SNAPSHOT-51c4049
   replicas: 1
 apache:
-  version: 1.1.3-SNAPSHOT-80ae6b4
+  version: 1.1.3-SNAPSHOT-51c4049
   replicas: 1
 solr:
-  version: 1.1.3-SNAPSHOT-80ae6b4
+  version: 1.1.3-SNAPSHOT-51c4049
   storage:
     type: standard
     size: 10

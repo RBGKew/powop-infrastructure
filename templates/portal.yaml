@@ -39,7 +39,7 @@ spec:
 {{- end }}
 {{- if .Values.db.cloudsql.enabled }}
             - name: JDBC_DRIVER_URL
-              value: jdbc:mysql://127.0.0.1:3306/emonocot
+              value: jdbc:mysql://127.0.0.1:3306/{{ .Values.db.database }}
 {{- template "cloudsql_proxy" . }}
 {{- end }}
 ---

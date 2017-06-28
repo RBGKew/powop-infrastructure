@@ -11,7 +11,7 @@ Helm is used for managing k8s configurations. See Helm
 Once Helm is installed on the kubernetes cluster, you have to bootstrap a few
 cluster-wide resources (storageclasses) by running
 
-    $ kubectl install -f bootstrap/storage_classes.yaml
+    $ kubectl create -f bootstrap/storage_classes.yaml
 
 Then you can install a powop installation by running
 
