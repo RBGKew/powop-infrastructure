@@ -23,6 +23,8 @@ spec:
                 secretKeyRef:
                   name: db-secrets
                   key: jdbc-driver-password
+{{- end }}
+{{- if .Values.cdn_key }}
             - name: CDN_KEY
               valueFrom:
                 secretKeyRef:
