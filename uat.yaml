@@ -3,5 +3,7 @@ db:
   cloudsql:
     enabled: true
     connection: powop-1349:europe-west1:manageddb1
+  database: emonocot
+  user: emonocot
 portal:
   replicas: 2
