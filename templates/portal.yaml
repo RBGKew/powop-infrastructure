@@ -34,12 +34,9 @@ spec:
             - name: JDBC_DRIVER_USERNAME
               value: {{ .Values.db.user }}
 {{- end }}
-{{- if .Values.google_analytics_code }}
+{{- if .Values.portal.google_analytics_code }}
             - name: GOOGLE_ANALYTICS_CODE
-              valueFrom:
-                secretKeyRef:
-                  name: service-keys
-                  key: google-analytics-code
+              value: {{ .Values.portal.google_analytics_code }}
 {{- end }}
 {{- if .Values.cdn_key }}
             - name: CDN_KEY
