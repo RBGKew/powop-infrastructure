@@ -30,9 +30,9 @@ spec:
                   name: db-secrets
                   key: jdbc-driver-password
 {{- end }}
-{{- if .Values.db.password }}
+{{- if .Values.db.user }}
             - name: JDBC_DRIVER_USERNAME
-              value: {{ .Values.db.password }}
+              value: {{ .Values.db.user }}
 {{- end }}
 {{- if .Values.google_analytics_code }}
             - name: GOOGLE_ANALYTICS_CODE
