@@ -24,3 +24,12 @@ Parallel releases can be installed in the same cluster by specifying a `--namesp
 Any namespace-specific overrides are in values files named the same as the namespace
 
     $ helm install --namespace uat -f uat.yaml -f [path to uat secrets] .
+
+## Secrets
+
+Secrets are kept in a separate, limited access repository. They are included here as a
+git submodule in the `secrets` folder. If you have access to the repository, you can
+initialize it with:
+
+    $ git submodule init
+    $ git submodule update
