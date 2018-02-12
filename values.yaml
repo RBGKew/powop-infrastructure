@@ -17,13 +17,13 @@ geoserver:
   database: gis
   user: geoserver
 portal:
-  version: 2.0.0-315c245
+  version: 2.0.0-94868f5
   replicas: 1
 harvester:
   version: 2.0.0-315c245
   replicas: 1
 apache:
-  version: 2.0.0-315c245
+  version: 2.0.0-94868f5
   replicas: 1
 solr:
   version: 2.0.0-315c245
