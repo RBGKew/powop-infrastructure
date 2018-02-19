@@ -25,6 +25,9 @@ Any namespace-specific overrides are in values files named the same as the names
 
     $ helm install --namespace uat -f uat.yaml -f [path to uat secrets] .
 
+Upgrade
+    $ helm upgrade --namespace uat -f uat.yaml -f [path to uat secrets] uat .
+
 ## Secrets
 
 Secrets are kept in a separate, limited access repository. They are included here as a

@@ -1,0 +1,99 @@
+{{- if .Values.portalcolplanta.enabled }}
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: portalcolplanta
+spec:
+  replicas: {{ .Values.portalcolplanta.replicas }}
+  template:
+    metadata:
+      labels:
+        name: portalcolplanta
+        env: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: portalcolplanta
+          image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
+          ports:
+            - containerPort: 8009
+          imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 20
+            timeoutSeconds: 1
+          env:
+            - name: SITE_VARIANT
+              value: ColPlantASite
+{{- if .Values.db.password }}
+            - name: JDBC_DRIVER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: jdbc-driver-password
+{{- end }}
+{{- if .Values.db.user }}
+            - name: JDBC_DRIVER_USERNAME
+              value: {{ .Values.db.user }}
+{{- end }}
+{{- if .Values.portal.google_analytics_code }}
+            - name: GOOGLE_ANALYTICS_CODE
+              value: {{ .Values.portal.google_analytics_code }}
+{{- end }}
+{{- if .Values.cdn_key }}
+            - name: CDN_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: service-keys
+                  key: cdn-key
+{{- end }}
+{{- if .Values.db.cloudsql.enabled }}
+            - name: JDBC_DRIVER_URL
+              value: jdbc:mysql://127.0.0.1:3306/{{ .Values.db.database }}
+{{- template "cloudsql_proxy" . }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portalcolplanta
+spec:
+  selector:
+    name: portalcolplanta
+  ports:
+    - port: 8009
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: apachecolplanta
+spec:
+  replicas: {{ .Values.apachecolplanta.replicas }}
+  template:
+    metadata:
+      labels:
+        name: apachecolplanta
+        env: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: apachecolplanta
+          image: eu.gcr.io/powop-1349/apache:{{ .Values.apache.version }}
+          env:
+            - name: PORTAL
+              value: portalcolplanta
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apachecolplanta
+spec:
+  selector:
+    name: apachecolplanta
+  ports:
+    - port: 80
+  type: LoadBalancer
+{{- end }}

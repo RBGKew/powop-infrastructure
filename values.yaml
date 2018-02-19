@@ -17,13 +17,19 @@ geoserver:
   database: gis
   user: geoserver
 portal:
-  version: 2.0.0-94868f5
+  version: 2.0.0-bb2ff7b
+  replicas: 1
+portalcolplanta:
+  version: 2.0.0-bb2ff7b
+  enabled: false
+  replicas: 1
+apachecolplanta:
   replicas: 1
 harvester:
   version: 2.0.0-315c245
   replicas: 1
 apache:
-  version: 2.0.0-94868f5
+  version: 2.0.0-bb2ff7b
   replicas: 1
 solr:
   version: 2.0.0-315c245
