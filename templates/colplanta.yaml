@@ -1,19 +1,19 @@
-{{- if .Values.portalcolplanta.enabled }}
+{{- if .Values.colplanta.enabled }}
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: portalcolplanta
+  name: portal-colplanta
 spec:
-  replicas: {{ .Values.portalcolplanta.replicas }}
+  replicas: {{ .Values.colplanta.portal.replicas }}
   template:
     metadata:
       labels:
-        name: portalcolplanta
+        name: portal-colplanta
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: portalcolplanta
-          image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
+        - name: portal-colplanta
+          image: eu.gcr.io/powop-1349/portal:{{ .Values.colplanta.version }}
           ports:
             - containerPort: 8009
           imagePullPolicy: Always
@@ -57,31 +57,31 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: portalcolplanta
+  name: portal-colplanta
 spec:
   selector:
-    name: portalcolplanta
+    name: portal-colplanta
   ports:
     - port: 8009
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apachecolplanta
+  name: apache-colplanta
 spec:
-  replicas: {{ .Values.apachecolplanta.replicas }}
+  replicas: {{ .Values.colplanta.apache.replicas }}
   template:
     metadata:
       labels:
-        name: apachecolplanta
+        name: apache-colplanta
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: apachecolplanta
-          image: eu.gcr.io/powop-1349/apache:{{ .Values.apache.version }}
+        - name: apache-colplanta
+          image: eu.gcr.io/powop-1349/apache:{{ .Values.colplanta.version }}
           env:
             - name: PORTAL
-              value: portalcolplanta
+              value: portal-colplanta
           ports:
             - containerPort: 80
           imagePullPolicy: Always
@@ -89,10 +89,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: apachecolplanta
+  name: apache-colplanta
 spec:
   selector:
-    name: apachecolplanta
+    name: apache-colplanta
   ports:
     - port: 80
   type: LoadBalancer

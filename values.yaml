@@ -12,24 +12,18 @@ db:
     size: 10
     onrelease: Delete
 geoserver:
-  version: 2.0.0-315c245
+  version: 2.0.0-5c71a57
   replicas: 1
   database: gis
   user: geoserver
 portal:
-  version: 2.0.0-bb2ff7b
-  replicas: 1
-portalcolplanta:
-  version: 2.0.0-bb2ff7b
-  enabled: false
-  replicas: 1
-apachecolplanta:
+  version: 2.0.0-6a46afa
   replicas: 1
 harvester:
-  version: 2.0.0-315c245
+  version: 2.0.0-6a46afa
   replicas: 1
 apache:
-  version: 2.0.0-bb2ff7b
+  version: 2.0.0-6a46afa
   replicas: 1
 solr:
   version: 2.0.0-315c245
@@ -37,3 +31,10 @@ solr:
     type: standard
     size: 10
     onrelease: Delete
+colplanta:
+  enabled: false
+  version: 2.0.0-6a46afa
+  apache:
+    replicas: 1
+  portal:
+    replicas: 1

@@ -7,7 +7,5 @@ db:
   user: emonocot
 portal:
   replicas: 2
-portalcolplanta:
+colplanta:
   enabled: true
-
-
