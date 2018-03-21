@@ -1,18 +1,18 @@
-{{- if .Values.colplanta.enabled }}
+{{- if .Values.upb.enabled }}
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: portal-colplanta
+  name: portal-upb
 spec:
-  replicas: {{ .Values.colplanta.portal.replicas }}
+  replicas: {{ .Values.upb.portal.replicas }}
   template:
     metadata:
       labels:
-        name: portal-colplanta
+        name: portal-upb
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: portal-colplanta
+        - name: portal-upb
           image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
           ports:
             - containerPort: 8009
@@ -25,7 +25,7 @@ spec:
             timeoutSeconds: 1
           env:
             - name: SITE_VARIANT
-              value: ColPlantASite
+              value: UPBSite
 {{- if .Values.db.password }}
             - name: JDBC_DRIVER_PASSWORD
               valueFrom:
@@ -57,31 +57,31 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: portal-colplanta
+  name: portal-upb
 spec:
   selector:
-    name: portal-colplanta
+    name: portal-upb
   ports:
     - port: 8009
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apache-colplanta
+  name: apache-upb
 spec:
-  replicas: {{ .Values.colplanta.apache.replicas }}
+  replicas: {{ .Values.upb.apache.replicas }}
   template:
     metadata:
       labels:
-        name: apache-colplanta
+        name: apache-upb
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: apache-colplanta
-          image: eu.gcr.io/powop-1349/apache:{{ .Values.apache.version }}
+        - name: apache-upb
+          image: eu.gcr.io/powop-1349/apache:{{ .Values.portal.version }}
           env:
             - name: PORTAL
-              value: portal-colplanta
+              value: portal-upb
           ports:
             - containerPort: 80
           imagePullPolicy: Always
@@ -89,10 +89,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: apache-colplanta
+  name: apache-upb
 spec:
   selector:
-    name: apache-colplanta
+    name: apache-upb
   ports:
     - port: 80
   type: LoadBalancer
