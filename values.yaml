@@ -5,8 +5,8 @@ db:
   cloudsql:
     enabled: false
   version: 2.0.0-d091eb2
-  database: emonocot
-  user: emonocot
+  database: powo
+  user: powo
   storage:
     type: standard
     size: 10
