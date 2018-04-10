@@ -64,7 +64,7 @@ metadata:
 spec:
   resources:
     requests:
-      storage: 10Gi
+      storage: {{ .Values.db.storage.size }}Gi
   accessModes:
     - ReadWriteOnce
   storageClassName: {{ .Values.db.storage.type | quote }}

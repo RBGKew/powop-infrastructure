@@ -52,7 +52,7 @@ metadata:
 spec:
   resources:
     requests:
-      storage: 10Gi
+      storage: {{ .Values.solr.storage.size}}Gi
   accessModes:
     - ReadWriteOnce
   storageClassName: {{ .Values.solr.storage.type | quote }}
