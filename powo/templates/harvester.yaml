@@ -20,6 +20,12 @@ spec:
           ports:
             - containerPort: 8009
           imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /harvester/ping
+              port: 8080
+            initialDelaySeconds: 20
+            timeoutSeconds: 1
           env:
 {{- if .Values.db.password }}
             - name: JDBC_DRIVER_PASSWORD
