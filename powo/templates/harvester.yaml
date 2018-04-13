@@ -10,6 +10,10 @@ spec:
         name: harvester
         env: {{ .Release.Name }}
     spec:
+      initContainers:
+        - name: init-db
+          image: mariadb:10.3.5
+          command: ['sh', '-c', 'until mysqladmin ping --host db; do echo waiting for db; sleep 2; done']
       containers:
         - name: harvester
           image: eu.gcr.io/powop-1349/harvester:{{ .Values.harvester.version }}
