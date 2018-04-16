@@ -15,7 +15,7 @@ spec:
                 secretName: deployer-secrets
           containers:
             - name: powo-builder
-              image: eu.gcr.io/powop-1349/builder:2.0.0-17a24c9
+              image: eu.gcr.io/powop-1349/builder:{{ .Values.builder.tag }}
               volumeMounts:
                 - name: deployer-secrets
                   mountPath: "/secrets"
