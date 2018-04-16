@@ -1,0 +1,41 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: builder
+spec:
+  schedule: "*/30 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          volumes:
+            - name: deployer-secrets
+              secret:
+                secretName: deployer-secrets
+          containers:
+            - name: powo-builder
+              image: eu.gcr.io/powop-1349/builder:2.0.0-17a24c9
+              volumeMounts:
+                - name: deployer-secrets
+                  mountPath: "/secrets"
+                  readOnly: true
+              env:
+                - name: G_USER
+                  value: {{ .Values.user }}
+                - name: G_PROJECT
+                  value: {{ .Values.project }}
+                - name: G_CLUSTER
+                  value: {{ .Values.cluster }}
+                - name: G_REGION
+                  value: {{ .Values.region }}
+                - name: G_ZONE
+                  value: {{ .Values.zone }}
+{{- if .Values.environment }}
+                - name: ENVIRONMENT
+                  value: {{ .Values.environment }}
+{{- end }}
+{{- if .Values.infrastructure.tag }}
+                - name: DEPLOY_TAG
+                  value: {{ .Values.infrastructure.tag }}
+{{- end }}

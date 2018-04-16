@@ -1,0 +1,7 @@
+infrastructure:
+  tag: "master"
+user: deployer@powop-1349.iam.gserviceaccount.com
+project: powop-1349
+cluster: testing-cluster
+region: europe-west2-c
+zone: europe-west2-c
