@@ -62,6 +62,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: portal-upb
+  labels:
+    name: portal-upb
 spec:
   selector:
     name: portal-upb
@@ -94,6 +96,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: apache-upb
+  labels:
+    name: apache-upb
 spec:
   selector:
     name: apache-upb

@@ -62,6 +62,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: portal-colplanta
+  labels:
+    name: portal-colplanta
 spec:
   selector:
     name: portal-colplanta
@@ -94,6 +96,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: apache-colplanta
+  labels:
+    name: apache-colplanta
 spec:
   selector:
     name: apache-colplanta
