@@ -3,8 +3,8 @@
 Kubernetes configs and some utilities for managing Plants of the World Online on Google
 Container Engine. POWO can be installed in one of two ways. 
 
-1) Install directly
-2) Install a "builder" which will deploy and refresh the entire system on a set schedule
+1. Install directly
+2. Install a "builder" which will deploy and refresh the entire system on a set schedule
 
 ## Bootstrapping
 
@@ -13,7 +13,7 @@ Both methods use Helm to deploy the necessary components to your cluster. See He
 to get set up.
 
 Once Helm is installed on your machine and the kubernetes cluster, you have to bootstrap
-a few cluster-wide resources by running the `bootstrap.sh` script. These initialise
+a few cluster-wide resources by running the `bootstrap.sh` script. This initialises
 storage classes and rbac roles needed for installation.
 
 ## Secrets
@@ -25,7 +25,7 @@ initialize it with:
     $ git submodule init
     $ git submodule update
 
-## 1) Direct Install
+## 1. Direct Install
 
 Then you can install a powo installation by running
 
@@ -43,7 +43,7 @@ Upgrade
 
     $ helm upgrade --namespace uat -f uat.yaml -f [path to uat secrets] uat powo/
 
-## 2) Builder Install
+## 2. Builder Install
 
 The POWO builder allows you to re-build the entire stack, and re-load a set of data,
 automatically on a fixed schedule. It does this by running a "builder" script on a cron
