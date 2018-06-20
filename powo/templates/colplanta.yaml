@@ -30,7 +30,7 @@ spec:
           env:
             - name: SITE_VARIANT
               value: ColPlantASite
-{{- if .Values.db.password }}
+{{- if .Values.password.db }}
             - name: JDBC_DRIVER_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -45,7 +45,7 @@ spec:
             - name: GOOGLE_ANALYTICS_CODE
               value: {{ .Values.portal.google_analytics_code }}
 {{- end }}
-{{- if .Values.cdn_key }}
+{{- if .Values.password.cdn }}
             - name: CDN_KEY
               valueFrom:
                 secretKeyRef:

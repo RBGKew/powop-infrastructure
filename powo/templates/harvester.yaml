@@ -27,7 +27,7 @@ spec:
             initialDelaySeconds: 20
             timeoutSeconds: 1
           env:
-{{- if .Values.db.password }}
+{{- if .Values.password.db }}
             - name: JDBC_DRIVER_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -38,7 +38,7 @@ spec:
             - name: JDBC_DRIVER_USERNAME
               value: {{ .Values.db.user }}
 {{- end }}
-{{- if .Values.cdn_key }}
+{{- if .Values.password.cdn }}
             - name: CDN_KEY
               valueFrom:
                 secretKeyRef:
