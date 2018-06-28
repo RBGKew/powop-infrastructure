@@ -1,21 +1,21 @@
 ---
 db:
-  cloudsql:
-    enabled: true
-    connection: powop-1349:europe-west1:powop-prod-db
-  database: powo_1
-  user: emonocot
-geoserver:
-  version: 2.0.0-315c245
-portal:
-  version: 2.0.0-94868f5
-  replicas: 2
-  google_analytics_code: GTM-5KXDJXF
-harvester:
-  version: 2.0.0-315c245
-apache:
-  version: 2.0.0-94868f5
-solr:
-  version: 2.0.0-315c245
+  database: powo
+  user: powo
   storage:
     type: ssd
+    size: 20
+geoserver:
+  version: 2.0.0-7a516bd
+portal:
+  version: 2.0.0-7a516bd
+  replicas: 2
+harvester:
+  version: 2.0.0-7a516bd
+apache:
+  version: 2.0.0-7a516bd
+solr:
+  version: 2.0.0-7a516bd
+  storage:
+    type: ssd
+    size: 20
