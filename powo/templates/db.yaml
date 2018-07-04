@@ -1,5 +1,4 @@
 # Portal database
-{{- if not .Values.db.cloudsql.enabled }}
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -70,4 +69,3 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: {{ .Values.db.storage.type | quote }}
-{{- end }}

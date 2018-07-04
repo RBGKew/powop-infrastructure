@@ -49,11 +49,6 @@ spec:
                   name: service-keys
                   key: cdn-key
 {{- end }}
-{{- if .Values.db.cloudsql.enabled }}
-            - name: JDBC_DRIVER_URL
-              value: jdbc:mysql://127.0.0.1:3306/{{ .Values.db.database }}
-{{- template "cloudsql_proxy" . }}
-{{- end }}
 ---
 apiVersion: v1
 kind: Service

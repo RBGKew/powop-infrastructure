@@ -1,9 +1,5 @@
 ---
 db:
-  # When using gsql, enabled should be true. Otherwise, a mysql instance will be
-  # spun up in a container
-  cloudsql:
-    enabled: false
   version: 2.0.0-7a516bd
   database: powo
   user: powo
