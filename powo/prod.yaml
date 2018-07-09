@@ -8,12 +8,12 @@ db:
 geoserver:
   version: 2.0.0-7a516bd
 portal:
-  version: 2.0.0-7f833cf
+  version: 2.0.0-f4940b7
   replicas: 2
 harvester:
   version: 2.0.0-7a516bd
 apache:
-  version: 2.0.0-7f833cf
+  version: 2.0.0-f4940b7
 solr:
   version: 2.0.0-7a516bd
   storage:
