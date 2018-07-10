@@ -34,6 +34,13 @@ spec:
                   name: db-secrets
                   key: jdbc-driver-password
 {{- end }}
+{{- if .Values.password.harvester }}
+            - name: HARVESTER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: service-keys
+                  key: harvester-password
+{{- end }}
 {{- if .Values.db.user }}
             - name: JDBC_DRIVER_USERNAME
               value: {{ .Values.db.user }}
