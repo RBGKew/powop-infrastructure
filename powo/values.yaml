@@ -1,6 +1,6 @@
 ---
 db:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-dea53f7
   database: powo
   user: powo
   storage:
@@ -8,21 +8,21 @@ db:
     size: 10
     onrelease: Delete
 geoserver:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-dea53f7
   replicas: 1
   database: gis
   user: geoserver
 portal:
-  version: 2.0.0-f4940b7
+  version: 2.0.0-dea53f7
   replicas: 1
 harvester:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-dea53f7
   replicas: 1
 apache:
-  version: 2.0.0-f4940b7
+  version: 2.0.0-dea53f7
   replicas: 1
 solr:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-dea53f7
   storage:
     type: standard
     size: 10
