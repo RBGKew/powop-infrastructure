@@ -6,6 +6,7 @@ spec:
   schedule: "*/30 * * * *"
   jobTemplate:
     spec:
+      backoffLimit: 0
       template:
         spec:
           restartPolicy: Never
@@ -16,6 +17,7 @@ spec:
           containers:
             - name: powo-builder
               image: eu.gcr.io/powop-1349/builder:{{ .Values.builder.tag }}
+              imagePullPolicy: Always
               volumeMounts:
                 - name: deployer-secrets
                   mountPath: "/secrets"
@@ -40,6 +42,6 @@ spec:
                   value: {{ .Values.infrastructure.tag }}
 {{- end }}
 {{- if .Values.password.harvester }}
-                - name: HARVESTER_PASSWORD
+                - name: API_PASSWORD
                   value: {{ .Values.password.harvester }}
 {{- end }}
