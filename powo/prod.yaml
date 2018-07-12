@@ -6,16 +6,16 @@ db:
     type: ssd
     size: 20
 geoserver:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-e9d72a1
 portal:
-  version: 2.0.0-f4940b7
+  version: 2.0.0-e9d72a1
   replicas: 2
 harvester:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-e9d72a1
 apache:
-  version: 2.0.0-f4940b7
+  version: 2.0.0-e9d72a1
 solr:
-  version: 2.0.0-7a516bd
+  version: 2.0.0-e9d72a1
   storage:
     type: ssd
     size: 20
