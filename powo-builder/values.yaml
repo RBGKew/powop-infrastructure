@@ -1,10 +1,11 @@
 infrastructure:
   tag: "master"
 builder:
-  tag: "2.0.0-17a24c9"
+  tag: "2.0.0-eb22edd"
 user: deployer@powop-1349.iam.gserviceaccount.com
 project: powop-1349
-cluster: testing-cluster
-region: europe-west2-c
-zone: europe-west2-c
+cluster: powop-dev
+region: europe-west1-d
+zone: europe-west1-d
 environment: dev
+dns: []

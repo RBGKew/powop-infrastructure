@@ -14,6 +14,9 @@ spec:
             - name: deployer-secrets
               secret:
                 secretName: deployer-secrets
+            - name: dns-config
+              configMap:
+                name: dns-configmap
           containers:
             - name: powo-builder
               image: eu.gcr.io/powop-1349/builder:{{ .Values.builder.tag }}
@@ -21,6 +24,9 @@ spec:
               volumeMounts:
                 - name: deployer-secrets
                   mountPath: "/secrets"
+                  readOnly: true
+                - name: dns-config
+                  mountPath:  "/config"
                   readOnly: true
               env:
                 - name: G_USER
@@ -33,15 +39,15 @@ spec:
                   value: {{ .Values.region }}
                 - name: G_ZONE
                   value: {{ .Values.zone }}
-{{- if .Values.environment }}
+                {{- if .Values.environment }}
                 - name: ENVIRONMENT
                   value: {{ .Values.environment }}
-{{- end }}
-{{- if .Values.infrastructure.tag }}
+                {{- end }}
+                {{- if .Values.infrastructure.tag }}
                 - name: DEPLOY_TAG
                   value: {{ .Values.infrastructure.tag }}
-{{- end }}
-{{- if .Values.password.harvester }}
+                {{- end }}
+                {{- if .Values.password.harvester }}
                 - name: API_PASSWORD
                   value: {{ .Values.password.harvester }}
-{{- end }}
+                {{- end }}

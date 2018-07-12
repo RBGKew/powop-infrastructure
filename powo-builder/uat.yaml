@@ -1,0 +1,11 @@
+environment: uat
+dns:
+  - zone: plantsoftheworld-online
+    name: plantsoftheworld.online.
+    service: apache
+  - zone: plantsoftheworld-online
+    name: upb.plantsoftheworld.online.
+    service: apache-upb
+  - zone: plantsoftheworld-online
+    name: colplanta.plantsoftheworld.online.
+    service: apache-colplanta

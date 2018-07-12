@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dns-configmap
+data:
+  dns-mappings.yaml: |-
+    dns:{{ if .Values.dns }}
+    {{- range .Values.dns }}
+      - {{ .zone }}
+        {{ .name }}
+        {{ .service }}
+    {{- end }}
+    {{- else }} []
+    {{- end }}
