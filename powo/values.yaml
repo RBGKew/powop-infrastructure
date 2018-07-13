@@ -16,7 +16,7 @@ portal:
   version: 2.0.0-e9d72a1
   replicas: 1
 harvester:
-  version: 2.0.0-e9d72a1
+  version: 2.0.0-1d9f006
   replicas: 1
 apache:
   version: 2.0.0-e9d72a1

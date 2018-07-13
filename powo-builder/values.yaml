@@ -1,7 +1,7 @@
 infrastructure:
   tag: "master"
 builder:
-  tag: "2.0.0-eb22edd"
+  tag: "2.0.0-fbebdbc"
 user: deployer@powop-1349.iam.gserviceaccount.com
 project: powop-1349
 cluster: powop-dev
