@@ -19,6 +19,8 @@ spec:
           volumeMounts:
             - name: db-data
               mountPath: /var/lib/mysql
+          resources:
+{{ toYaml .Values.db.resources | indent 12 }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:

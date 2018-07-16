@@ -26,6 +26,8 @@ spec:
               port: 8080
             initialDelaySeconds: 20
             timeoutSeconds: 1
+          resources:
+{{ toYaml .Values.harvester.resources | indent 12 }}
           env:
 {{- if .Values.password.db }}
             - name: JDBC_DRIVER_PASSWORD

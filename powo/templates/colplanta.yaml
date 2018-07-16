@@ -27,6 +27,8 @@ spec:
               port: 8080
             initialDelaySeconds: 20
             timeoutSeconds: 1
+          resources:
+{{ toYaml .Values.portal.resources | indent 12 }}
           env:
             - name: SITE_VARIANT
               value: ColPlantASite
@@ -86,6 +88,8 @@ spec:
           ports:
             - containerPort: 80
           imagePullPolicy: Always
+          resources:
+{{ toYaml .Values.apache.resources | indent 12 }}
 ---
 apiVersion: v1
 kind: Service

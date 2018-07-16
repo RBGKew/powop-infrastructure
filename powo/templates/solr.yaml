@@ -25,6 +25,8 @@ spec:
             initialDelaySeconds: 10
             timeoutSeconds: 2
           imagePullPolicy: Always
+          resources:
+{{ toYaml .Values.solr.resources | indent 12 }}
       securityContext:
         # fsGroup defines what user volumes are mounted as. Since solr runs as
         # an unprivileged  user, we have to make sure volumes are writeable

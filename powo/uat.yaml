@@ -1,6 +1,4 @@
 ---
-portal:
-  replicas: 2
 colplanta:
   enabled: true
 upb:

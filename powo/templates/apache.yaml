@@ -19,6 +19,8 @@ spec:
           ports:
             - containerPort: 80
           imagePullPolicy: Always
+          resources:
+{{ toYaml .Values.apache.resources | indent 12 }}
 ---
 apiVersion: v1
 kind: Service
