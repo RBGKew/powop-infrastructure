@@ -1,5 +1,6 @@
 ---
 db:
+  version: 2.0.0-eb22edd
   database: powo
   user: powo
   storage:
