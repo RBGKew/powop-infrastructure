@@ -5,10 +5,6 @@ metadata:
 data:
   dns-mappings.yaml: |-
     dns:{{ if .Values.dns }}
-    {{- range .Values.dns }}
-      - {{ .zone }}
-        {{ .name }}
-        {{ .service }}
-    {{- end }}
+{{ .Values.dns | toYaml | indent 6 }}
     {{- else }} []
     {{- end }}
