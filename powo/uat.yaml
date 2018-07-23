@@ -1,4 +1,10 @@
 ---
+db:
+  storage:
+    type: ssd
+solr:
+  storage:
+    type: ssd
 colplanta:
   enabled: true
 upb:
