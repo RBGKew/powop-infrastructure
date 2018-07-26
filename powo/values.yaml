@@ -64,7 +64,7 @@ solr:
     onrelease: Delete
   resources:
     limits:
-      cpu: "100m"
+      cpu: "1.5"
       memory: "800Mi"
     requests:
       cpu: "50m"
