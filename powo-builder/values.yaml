@@ -1,10 +1,10 @@
 infrastructure:
   tag: "master"
 builder:
-  tag: "2.0.0-fbebdbc"
+  tag: "2.0.0-d0f4d0a"
 user: deployer@powop-1349.iam.gserviceaccount.com
 project: powop-1349
-cluster: powop-dev
+cluster: powo-dev
 region: europe-west1-d
 zone: europe-west1-d
 environment: dev

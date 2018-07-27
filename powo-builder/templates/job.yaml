@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: builder
 spec:
-  schedule: "*/30 * * * *"
+  schedule: "33 15 * * *"
   jobTemplate:
     spec:
       backoffLimit: 0
