@@ -47,7 +47,7 @@ harvester:
       cpu: "500m"
       memory: "700Mi"
 apache:
-  version: 2.0.0-124a54c
+  version: 2.0.0-056484b
   replicas: 1
   resources:
     limits:
