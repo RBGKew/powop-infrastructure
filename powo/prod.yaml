@@ -1,23 +1,23 @@
 ---
 db:
-  version: 2.0.0-eb22edd
+  version: 2.0.0-f3e73d7
   database: powo
   user: powo
   storage:
     type: ssd
     size: 20
 geoserver:
-  version: 2.0.0-e9d72a1
+  version: 2.0.0-f3e73d7
 portal:
-  version: 2.0.0-e9d72a1
+  version: 2.0.0-f3e73d7
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
 harvester:
-  version: 2.0.0-e9d72a1
+  version: 2.0.0-f3e73d7
 apache:
-  version: 2.0.0-e9d72a1
+  version: 2.0.0-f3e73d7
 solr:
-  version: 2.0.0-e9d72a1
+  version: 2.0.0-f3e73d7
   storage:
     type: ssd
     size: 20
