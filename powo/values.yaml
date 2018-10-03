@@ -21,8 +21,8 @@ geoserver:
   user: geoserver
   resources:
     limits:
-      cpu: "500m"
-      memory: "1200Mi"
+      cpu: "800m"
+      memory: "2Gi"
     requests:
       cpu: "100m"
       memory: "1Gi"
