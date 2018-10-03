@@ -1,7 +1,7 @@
 infrastructure:
   tag: "master"
 builder:
-  tag: "2.0.0-f3e73d7"
+  tag: "2.0.0-8b7567a"
 user: deployer@powop-1349.iam.gserviceaccount.com
 project: powop-1349
 cluster: powo-dev
