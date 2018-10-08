@@ -1,4 +1,3 @@
-environment: uat
 dns:
   - zone: plantsoftheworld-online
     name: plantsoftheworld.online.
@@ -9,3 +8,5 @@ dns:
   - zone: plantsoftheworld-online
     name: colplanta.plantsoftheworld.online.
     service: apache-colplanta
+environment: uat
+schedule: "51 10 * * *"

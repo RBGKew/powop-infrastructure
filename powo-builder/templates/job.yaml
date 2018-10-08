@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: builder
 spec:
-  schedule: "33 15 * * *"
+  schedule: {{ .Values.schedule }}
   jobTemplate:
     spec:
       backoffLimit: 0
@@ -23,7 +23,7 @@ spec:
               imagePullPolicy: Always
               volumeMounts:
                 - name: deployer-secrets
-                  mountPath: "/secrets"
+                  mountPath: "/tmp/secrets"
                   readOnly: true
                 - name: dns-config
                   mountPath:  "/config"
@@ -39,6 +39,10 @@ spec:
                   value: {{ .Values.region }}
                 - name: G_ZONE
                   value: {{ .Values.zone }}
+                - name: G_SERVICE_ACCOUNT
+                  value: /tmp/secrets/service-account.json
+                - name: GOOGLE_APPLICATION_CREDENTIALS
+                  value: /tmp/secrets/service-account.json
                 {{- if .Values.environment }}
                 - name: ENVIRONMENT
                   value: {{ .Values.environment }}
