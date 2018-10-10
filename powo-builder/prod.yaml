@@ -1,2 +1,8 @@
 cluster: powo-prod
+deleteExisting: false
+dns:
+  - zone: plantsoftheworldonline-org
+    name: plantsoftheworldonline.org.
+    service: apache
 environment: prod
+schedule: "05 16 * * WED"
