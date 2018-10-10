@@ -10,7 +10,7 @@ geoserver:
   version: 2.0.0-f95b21d
 portal:
   version: 2.0.0-f95b21d
-  replicas: 2
+  replicas: 1
   google_analytics_code: GTM-5KXDJXF
 harvester:
   version: 2.0.0-f95b21d
