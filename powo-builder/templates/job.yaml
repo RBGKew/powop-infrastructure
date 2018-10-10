@@ -30,28 +30,30 @@ spec:
                   readOnly: true
               env:
                 - name: G_USER
-                  value: {{ .Values.user }}
+                  value: {{ .Values.user | quote }}
                 - name: G_PROJECT
-                  value: {{ .Values.project }}
+                  value: {{ .Values.project | quote }}
                 - name: G_CLUSTER
-                  value: {{ .Values.cluster }}
+                  value: {{ .Values.cluster | quote }}
                 - name: G_REGION
-                  value: {{ .Values.region }}
+                  value: {{ .Values.region | quote }}
                 - name: G_ZONE
-                  value: {{ .Values.zone }}
+                  value: {{ .Values.zone | quote }}
                 - name: G_SERVICE_ACCOUNT
-                  value: /tmp/secrets/service-account.json
+                  value: "/tmp/secrets/service-account.json"
                 - name: GOOGLE_APPLICATION_CREDENTIALS
-                  value: /tmp/secrets/service-account.json
+                  value: "/tmp/secrets/service-account.json"
+                - name: DELETE_EXISTING
+                  value: {{ .Values.deleteExisting | quote }}
                 {{- if .Values.environment }}
                 - name: ENVIRONMENT
-                  value: {{ .Values.environment }}
+                  value: {{ .Values.environment | quote }}
                 {{- end }}
                 {{- if .Values.infrastructure.tag }}
                 - name: DEPLOY_TAG
-                  value: {{ .Values.infrastructure.tag }}
+                  value: {{ .Values.infrastructure.tag | quote }}
                 {{- end }}
                 {{- if .Values.password.harvester }}
                 - name: API_PASSWORD
-                  value: {{ .Values.password.harvester }}
+                  value: {{ .Values.password.harvester | quote }}
                 {{- end }}

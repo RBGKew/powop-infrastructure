@@ -9,4 +9,5 @@ dns:
     name: colplanta.plantsoftheworld.online.
     service: apache-colplanta
 environment: uat
-schedule: "51 10 * * *"
+schedule: "33 14 * * *"
+deleteExisting: true
