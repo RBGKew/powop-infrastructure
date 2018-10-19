@@ -9,13 +9,13 @@ db:
 geoserver:
   version: 2.0.0-f95b21d
 portal:
-  version: 2.0.0-f95b21d
+  version: 2.0.0-5a3f218
   replicas: 1
   google_analytics_code: GTM-5KXDJXF
 harvester:
-  version: 2.0.0-f95b21d
+  version: 2.0.0-5a3f218
 apache:
-  version: 2.0.0-f95b21d
+  version: 2.0.0-5a3f218
 solr:
   version: 2.0.0-f95b21d
   storage:
