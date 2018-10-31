@@ -27,7 +27,7 @@ geoserver:
       cpu: "100m"
       memory: "1Gi"
 portal:
-  version: 2.0.0-c734510
+  version: 2.0.0-1e0c5f3
   replicas: 1
   resources:
     limits:
@@ -37,7 +37,7 @@ portal:
       cpu: "100m"
       memory: "400Mi"
 harvester:
-  version: 2.0.0-a7193f4
+  version: 2.0.0-1e0c5f3
   replicas: 1
   resources:
     limits:
@@ -47,7 +47,7 @@ harvester:
       cpu: "500m"
       memory: "700Mi"
 apache:
-  version: 2.0.0-c734510
+  version: 2.0.0-1e0c5f3
   replicas: 1
   resources:
     limits:
@@ -57,7 +57,7 @@ apache:
       cpu: "50m"
       memory: "10Mi"
 solr:
-  version: 2.0.0-a7193f4
+  version: 2.0.0-1e0c5f3
   storage:
     type: standard
     size: 10
