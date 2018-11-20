@@ -1,6 +1,6 @@
 ---
 db:
-  version: 2.0.0-5a48b19
+  version: 2.0.0-d77d162
   database: powo
   user: powo
   storage:
@@ -15,7 +15,7 @@ db:
       cpu: "100m"
       memory: "500Mi"
 geoserver:
-  version: 2.0.0-5a48b19
+  version: 2.0.0-d77d162
   replicas: 1
   database: gis
   user: geoserver
@@ -27,7 +27,7 @@ geoserver:
       cpu: "100m"
       memory: "1Gi"
 portal:
-  version: 2.0.0-5a48b19
+  version: 2.0.0-d77d162
   replicas: 1
   resources:
     limits:
@@ -37,7 +37,7 @@ portal:
       cpu: "100m"
       memory: "400Mi"
 harvester:
-  version: 2.0.0-5a48b19
+  version: 2.0.0-d77d162
   replicas: 1
   resources:
     limits:
@@ -47,7 +47,7 @@ harvester:
       cpu: "500m"
       memory: "700Mi"
 apache:
-  version: 2.0.0-5a48b19
+  version: 2.0.0-d77d162
   replicas: 1
   resources:
     limits:
@@ -57,7 +57,7 @@ apache:
       cpu: "50m"
       memory: "10Mi"
 solr:
-  version: 2.0.0-5a48b19
+  version: 2.0.0-d77d162
   storage:
     type: standard
     size: 10
