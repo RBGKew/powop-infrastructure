@@ -11,3 +11,4 @@ dns:
 environment: uat
 schedule: "0 5 * * SAT"
 deleteExisting: true
+strictErrorChecking: true

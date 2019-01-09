@@ -45,6 +45,10 @@ spec:
                   value: "/tmp/secrets/service-account.json"
                 - name: DELETE_EXISTING
                   value: {{ .Values.deleteExisting | quote }}
+                {{- if .Values.strictErrorChecking }}
+                - name: STRICT_ERROR_CHECKING
+                  value: {{ .Values.strictErrorChecking | quote }}
+                {{- end }}
                 {{- if .Values.environment }}
                 - name: ENVIRONMENT
                   value: {{ .Values.environment | quote }}

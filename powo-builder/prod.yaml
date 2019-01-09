@@ -6,3 +6,4 @@ dns:
     service: apache
 environment: prod
 schedule: "0 12 * * SUN"
+strictErrorChecking: true
