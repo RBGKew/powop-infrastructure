@@ -18,7 +18,7 @@ spec:
         - name: harvester
           image: eu.gcr.io/powop-1349/harvester:{{ .Values.harvester.version }}
           ports:
-            - containerPort: 8009
+            - containerPort: 8080
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -65,4 +65,4 @@ spec:
   selector:
     name: harvester
   ports:
-    - port: 8009
+    - port: 8080

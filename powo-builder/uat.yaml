@@ -1,13 +1,13 @@
 dns:
   - zone: plantsoftheworld-online
     name: plantsoftheworld.online.
-    service: apache
+    service: ingress
   - zone: plantsoftheworld-online
     name: upb.plantsoftheworld.online.
-    service: apache-upb
+    service: ingress-upb
   - zone: plantsoftheworld-online
     name: colplanta.plantsoftheworld.online.
-    service: apache-colplanta
+    service: ingress-colplanta
 environment: uat
 schedule: "0 5 * * SAT"
 deleteExisting: true

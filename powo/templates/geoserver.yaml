@@ -72,7 +72,7 @@ spec:
         - name: geoserver
           image: eu.gcr.io/powop-1349/geoserver:{{ .Values.geoserver.version }}
           ports:
-            - containerPort: 8009
+            - containerPort: 8080
           resources:
 {{ toYaml .Values.geoserver.resources | indent 12 }}
 ---
@@ -86,4 +86,4 @@ spec:
   selector:
     name: geoserver
   ports:
-    - port: 8009
+    - port: 8080

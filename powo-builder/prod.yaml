@@ -3,7 +3,7 @@ deleteExisting: true
 dns:
   - zone: plantsoftheworldonline-org
     name: plantsoftheworldonline.org.
-    service: apache
+    service: ingress
 environment: prod
 schedule: "0 12 * * SUN"
 strictErrorChecking: true

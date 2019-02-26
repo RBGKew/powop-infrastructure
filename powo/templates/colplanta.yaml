@@ -19,7 +19,7 @@ spec:
         - name: portal-colplanta
           image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
           ports:
-            - containerPort: 8009
+            - containerPort: 8080
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -65,23 +65,23 @@ spec:
   selector:
     name: portal-colplanta
   ports:
-    - port: 8009
+    - port: 8080
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apache-colplanta
+  name: ingress-colplanta
 spec:
-  replicas: {{ .Values.colplanta.apache.replicas }}
+  replicas: {{ .Values.colplanta.ingress.replicas }}
   template:
     metadata:
       labels:
-        name: apache-colplanta
+        name: ingress-colplanta
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: apache-colplanta
-          image: eu.gcr.io/powop-1349/apache:{{ .Values.apache.version }}
+        - name: ingress-colplanta
+          image: eu.gcr.io/powop-1349/ingress:{{ .Values.portal.version }}
           env:
             - name: PORTAL
               value: portal-colplanta
@@ -89,17 +89,17 @@ spec:
             - containerPort: 80
           imagePullPolicy: Always
           resources:
-{{ toYaml .Values.apache.resources | indent 12 }}
+{{ toYaml .Values.ingress.resources | indent 12 }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: apache-colplanta
+  name: ingress-colplanta
   labels:
-    name: apache-colplanta
+    name: ingress-colplanta
 spec:
   selector:
-    name: apache-colplanta
+    name: ingress-colplanta
   ports:
     - port: 80
   type: LoadBalancer

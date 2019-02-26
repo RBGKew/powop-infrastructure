@@ -19,7 +19,7 @@ spec:
         - name: portal-upb
           image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
           ports:
-            - containerPort: 8009
+            - containerPort: 8080
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -65,23 +65,23 @@ spec:
   selector:
     name: portal-upb
   ports:
-    - port: 8009
+    - port: 8080
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apache-upb
+  name: ingress-upb
 spec:
-  replicas: {{ .Values.upb.apache.replicas }}
+  replicas: {{ .Values.upb.ingress.replicas }}
   template:
     metadata:
       labels:
-        name: apache-upb
+        name: ingress-upb
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: apache-upb
-          image: eu.gcr.io/powop-1349/apache:{{ .Values.portal.version }}
+        - name: ingress-upb
+          image: eu.gcr.io/powop-1349/ingress:{{ .Values.portal.version }}
           env:
             - name: PORTAL
               value: portal-upb
@@ -89,17 +89,17 @@ spec:
             - containerPort: 80
           imagePullPolicy: Always
           resources:
-{{ toYaml .Values.apache.resources | indent 12 }}
+{{ toYaml .Values.ingress.resources | indent 12 }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: apache-upb
+  name: ingress-upb
   labels:
-    name: apache-upb
+    name: ingress-upb
 spec:
   selector:
-    name: apache-upb
+    name: ingress-upb
   ports:
     - port: 80
   type: LoadBalancer

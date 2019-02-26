@@ -18,7 +18,7 @@ spec:
         - name: portal
           image: eu.gcr.io/powop-1349/portal:{{ .Values.portal.version }}
           ports:
-            - containerPort: 8009
+            - containerPort: 8080
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -62,4 +62,4 @@ spec:
   selector:
     name: portal
   ports:
-    - port: 8009
+    - port: 8080

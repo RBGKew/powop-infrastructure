@@ -27,7 +27,7 @@ geoserver:
       cpu: "100m"
       memory: "1Gi"
 portal:
-  version: 2.0.0-3315a92
+  version: 2.0.0-515bf13
   replicas: 1
   resources:
     limits:
@@ -46,8 +46,7 @@ harvester:
     requests:
       cpu: "500m"
       memory: "700Mi"
-apache:
-  version: 2.0.0-3315a92
+ingress:
   replicas: 1
   resources:
     limits:
@@ -71,13 +70,13 @@ solr:
       memory: "500Mi"
 colplanta:
   enabled: false
-  apache:
+  ingress:
     replicas: 1
   portal:
     replicas: 1
 upb:
   enabled: false
-  apache:
+  ingress:
     replicas: 1
   portal:
     replicas: 1

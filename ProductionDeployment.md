@@ -29,7 +29,7 @@ Builder updates will only come into effect the next time a scheduled rebuild hap
 
         git rev-parse --short HEAD
 
-    You usually only need to change ``harvester.version``, or ``portal.version`` and ``apache.version`` (portal and apache must be changed together)
+    You usually only need to change ``harvester.version``, or ``portal.version``
 
 2) Make sure updated images are pushed to the google repository. From ``powop`` run
 

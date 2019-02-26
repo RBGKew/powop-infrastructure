@@ -1,36 +1,36 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: apache
+  name: ingress
 spec:
-  replicas: {{ .Values.apache.replicas }}
+  replicas: {{ .Values.ingress.replicas }}
   template:
     metadata:
       labels:
-        name: apache
+        name: ingress
         env: {{ .Release.Name }}
     spec:
       containers:
-        - name: apache
+        - name: ingress
           env:
             - name: PORTAL
               value: portal
-          image: eu.gcr.io/powop-1349/apache:{{ .Values.apache.version }}
+          image: eu.gcr.io/powop-1349/ingress:{{ .Values.portal.version }}
           ports:
             - containerPort: 80
           imagePullPolicy: Always
           resources:
-{{ toYaml .Values.apache.resources | indent 12 }}
+{{ toYaml .Values.ingress.resources | indent 12 }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: apache
+  name: ingress
   labels:
-    name: apache
+    name: ingress
 spec:
   selector:
-    name: apache
+    name: ingress
   ports:
     - port: 80
   type: LoadBalancer
