@@ -27,7 +27,7 @@ geoserver:
       cpu: "100m"
       memory: "1Gi"
 portal:
-  version: 2.0.0-ce1bbd7
+  version: 2.0.0-4939a71
   replicas: 1
   resources:
     limits:
