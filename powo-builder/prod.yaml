@@ -1,9 +1,15 @@
 cluster: powo-prod
-deleteExisting: true
+deleteExisting: false
 dns:
   - zone: plantsoftheworldonline-org
     name: plantsoftheworldonline.org.
     service: ingress
+  - zone: colplanta
+    name: colplanta.org.
+    service: ingress-colplanta
+  - zone: usefulplantsofboyaca
+    name: usefulplantsofboyaca.org.
+    service: ingress-upb
 environment: prod
-schedule: "0 12 * * SUN"
+schedule: "35 10 * * THU"
 strictErrorChecking: true

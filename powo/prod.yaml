@@ -9,11 +9,15 @@ db:
 geoserver:
   version: 2.0.0-eb990ab
 portal:
-  version: 2.0.0-515bf13
+  version: 2.0.0-8a162e9
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
+colplanta:
+  enabled: true
+upb:
+  enabled: true
 harvester:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-8a162e9
 solr:
   version: 2.0.0-eb990ab
   storage:
