@@ -18,6 +18,9 @@ spec:
           volumeMounts:
             - name: solr-data
               mountPath: /opt/solr/server/solr/powop/data
+          env:
+            - name: SOLR_HEAP
+              value: 1G
           readinessProbe:
             httpGet:
               path: /solr/powop/admin/ping
