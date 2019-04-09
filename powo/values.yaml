@@ -34,7 +34,7 @@ portal:
       cpu: "500m"
       memory: "500Mi"
     requests:
-      cpu: "100m"
+      cpu: "50m"
       memory: "400Mi"
 harvester:
   version: 2.0.0-c14e9f1
@@ -44,7 +44,7 @@ harvester:
       cpu: "1.5"
       memory: "2Gi"
     requests:
-      cpu: "500m"
+      cpu: "50m"
       memory: "700Mi"
 ingress:
   replicas: 1
