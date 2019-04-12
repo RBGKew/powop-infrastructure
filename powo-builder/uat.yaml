@@ -9,6 +9,6 @@ dns:
     name: colplanta.plantsoftheworld.online.
     service: ingress-colplanta
 environment: uat
-schedule: "0 5 * * SAT"
+schedule: "0 12 * * SUN"
 deleteExisting: true
 strictErrorChecking: true
