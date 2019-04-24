@@ -12,3 +12,4 @@ environment: uat
 schedule: "0 12 * * SUN"
 deleteExisting: true
 strictErrorChecking: true
+dataConfig: https://raw.githubusercontent.com/RBGKew/powo-data/master/data-test.json
