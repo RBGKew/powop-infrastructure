@@ -37,7 +37,7 @@ portal:
       cpu: "50m"
       memory: "400Mi"
 harvester:
-  version: 2.0.0-c14e9f1
+  version: 2.0.0-9484d01
   replicas: 1
   resources:
     limits:
