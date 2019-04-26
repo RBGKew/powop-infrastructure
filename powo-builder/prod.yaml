@@ -1,5 +1,5 @@
 cluster: powo-prod
-deleteExisting: true
+deleteExisting: false
 dns:
   - zone: plantsoftheworldonline-org
     name: plantsoftheworldonline.org.
@@ -13,3 +13,4 @@ dns:
 environment: prod
 schedule: "0 12 * * SUN"
 strictErrorChecking: true
+dataConfig: https://raw.githubusercontent.com/RBGKew/powo-data/master/data-prod.json
