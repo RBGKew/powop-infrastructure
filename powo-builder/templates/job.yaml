@@ -45,10 +45,8 @@ spec:
                   value: "/tmp/secrets/service-account.json"
                 - name: DATA_CONFIG_PATH
                   value: {{ .Values.dataConfig | quote }}
-                {{- if .Values.deleteExisting }}
                 - name: DELETE_EXISTING
                   value: {{ .Values.deleteExisting | quote }}
-                {{- end }}
                 {{- if .Values.strictErrorChecking }}
                 - name: STRICT_ERROR_CHECKING
                   value: {{ .Values.strictErrorChecking | quote }}
