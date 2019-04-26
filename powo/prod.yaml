@@ -1,4 +1,4 @@
----
+ku---
 db:
   version: 2.0.0-eb990ab
   database: powo
@@ -17,7 +17,7 @@ colplanta:
 upb:
   enabled: true
 harvester:
-  version: 2.0.0-c14e9f1
+  version: 2.0.0-9484d01
 solr:
   version: 2.0.0-eb990ab
   storage:
