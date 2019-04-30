@@ -71,4 +71,6 @@ manual](./doc/production-deployment.md)
 
 ## Data management
 
+[Read documentation](./doc/data-management.md) or
+
 [![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_git_repo=https%3A%2F%2Fgithub.com%2FRBGKew%2Fpowop-infrastructure&cloudshell_tutorial=doc%2Fdata-management.md)
