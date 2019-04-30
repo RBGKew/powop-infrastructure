@@ -1,0 +1,22 @@
+#!/bin/bash
+
+mapfile -t databases < <(kubectl get pod --all-namespaces -l name=db -o custom-columns="namespace:metadata.namespace,name:metadata.name" --no-headers)
+
+if (( ${#databases[@]} > 1 )); then
+	echo "multiple databases found:"
+	for i in "${!databases[@]}"; do
+    printf "  %s)\t%s\n" "$i" "${databases[$i]}"
+  done;
+
+  printf "Select database to connect to: "
+  read i
+else
+  i=0
+fi
+
+ns=${databases[$i]%% *}
+database=${databases[$i]##* }
+
+printf "\nConnecting to database for %s\n\n" "$nsdatabase"
+
+kubectl exec -it --namespace=$ns $database -- mysql -upowo -p powo

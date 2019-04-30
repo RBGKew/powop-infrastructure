@@ -1,0 +1,13 @@
+#!/bin/bash
+
+gcloud config set project powop-1349
+gcloud config set compute/region europe-west1-d
+gcloud config set compute/zone europe-west1-d
+
+source <(kubectl completion bash)
+
+gcloud config set container/cluster powo-prod
+gcloud container clusters get-credentials powo-prod
+
+gcloud config set container/cluster powo-dev
+gcloud container clusters get-credentials powo-dev
