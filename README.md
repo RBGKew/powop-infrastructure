@@ -65,3 +65,10 @@ then deployed in a secret to the builder.
 As an example, to deploy a builder that will build `dev` environment releases, run:
 
     $ helm install -f secrets/dev/secrets.yaml -f secrets/deployer/secrets.yaml --namespace builder-dev --name builder-dev powo-builder/
+
+For more details on production operations, please see the [production operations
+manual](./doc/production-deployment.md)
+
+## Data management
+
+[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_git_repo=https%3A%2F%2Fgithub.com%2FRBGKew%2Fpowop-infrastructure&cloudshell_tutorial=doc%2Fdata-management.md)

@@ -35,7 +35,7 @@ everything" list to load all resources and do a full index at the end. When addi
 resources, always remember to add them to this list so they are loaded during each data
 refresh.
 
-### Configuration Import/Export
+## Configuration Import/Export
 
 Data configuration can be exported via Settings (gear icon) -> Export. This will export
 a json representation of all organisations, resources, jobs, and job lists. 
@@ -63,4 +63,52 @@ When troubleshooting data load errors always start with checking the harvester l
 Thins such as DwCA metadata errors, harvester resource file not found errors will show
 up here.
 
-The second stop is the annotations table. 
+### Database
+
+The second stop is the annotations table. Proper debugging tools have not been built
+into the admin interface yet, so for now there are some useful places to look in the database.
+
+## Connecting to POWO database
+
+If using cloud shell, authenticate to the powo clusters (you will only need to do this once)
+
+    bin/authenticate
+
+Then connect to the cluster required cluster. Show available clusters with
+
+    kubectl config get-contexts
+
+Then select the required one to use with 
+
+    kubectl config use-context gke_powop-1349_europe-west1-d_powo-dev
+
+or
+
+    kubectl config use-context gke_powop-1349_europe-west1-d_powo-prod
+
+Once authenticated and connected to the correct cluster, run
+
+    bin/powo-db
+
+to connect to the database. It will prompt you for a password which can be
+found in the corresponding `secrets.yaml` file.
+
+## Useful queries
+
+Find job configurations and the job id of their last run
+
+~~~~sql
+select description, lastJobExecution, jobStatus, jobExitCode from jobconfiguration
+~~~~
+
+For a given job, check the status of the records harvested. e.g., with job id 10
+
+~~~~sql
+select code, count(*) from annotation where jobId = 10 group by code
+~~~~
+
+If there are error codes, find the error messages associated with them.
+
+~~~~sql
+select text from annotation where jobId = 44 and code = "BadField"
+~~~~
