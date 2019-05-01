@@ -35,6 +35,10 @@ Builder updates will only come into effect the next time a scheduled rebuild hap
 
         mvn deploy
 
+> *Note:* `powo-portal` and `powo-static` are tied to the same version number in the
+> helm configurations. So make sure, if you are not pushing all images out, to always
+> push portal and static together
+
 ### Direct Update
 
 3) Determine name of release you want to update:
