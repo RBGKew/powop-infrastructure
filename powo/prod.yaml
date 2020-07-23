@@ -9,7 +9,7 @@ db:
 geoserver:
   version: 2.0.0-eb990ab
 portal:
-  version: 2.0.0-ec5197d
+  version: 2.0.0-edcf8d0
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
 colplanta:
