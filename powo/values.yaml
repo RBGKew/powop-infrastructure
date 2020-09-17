@@ -56,7 +56,7 @@ ingress:
       cpu: "50m"
       memory: "10Mi"
 solr:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-17cff66
   storage:
     type: standard
     size: 10
