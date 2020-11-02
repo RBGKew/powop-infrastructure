@@ -42,7 +42,7 @@ harvester:
   resources:
     limits:
       cpu: "1.5"
-      memory: "2Gi"
+      memory: "2.5Gi"
     requests:
       cpu: "50m"
       memory: "700Mi"
