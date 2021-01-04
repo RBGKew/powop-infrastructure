@@ -69,6 +69,32 @@ As an example, to deploy a builder that will build `dev` environment releases, r
 For more details on production operations, please see the [production operations
 manual](./doc/production-deployment.md)
 
+## 3. Direct update
+
+Rebuilding the site can take a long time. If you are just making frontend changes it is possible to deploy these without rebuilding all the data.
+
+To do this you need to:
+
+1. Build the image
+```sh
+# from the root of the powop project
+mvn package
+```
+2. Update the image tags (in `powo/prod.yaml` for prod or `powo/values.yaml` for uat)
+3. Push the image tags to Github origin (this is required so that when the builder next runs it uses the same image)
+4. Get the current release `$RELEASE` and the relevant Kubernetes context (`powo-dev` for UAT, `powo-prod` for production) `$RELEASE_CONTEXT`
+```sh
+helm ls 
+# the namespace will be something like `uat-x7xns` or `prod-f4cir`
+```
+5. Work out required variables:
+    - `$RELEASE_CONTEXT` - `powo-dev` for UAT, `powo-prod` for production (or what you have set up in your Kubernetes context to access the relevant cluster)
+    - `$ENVIRONMENT` - `uat` for UAT, `prod` for production
+6. Update the current release with the latest tags (based on )
+```sh
+helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
+```
+
 ## Data management
 
 [Read documentation](./doc/data-management.md) or
