@@ -78,7 +78,7 @@ To do this you need to:
 1. Build the image
 ```sh
 # from the root of the powop project
-mvn package
+mvn clean deploy
 ```
 2. Update the image tags (in `powo/prod.yaml` for prod or `powo/values.yaml` for uat)
 3. Push the image tags to Github origin (this is required so that when the builder next runs it uses the same image)
