@@ -1,11 +1,19 @@
 ---
 db:
+  version: 2.0.0-eb990ab
   storage:
     type: ssd
-solr:
-  storage:
-    type: ssd
+geoserver:
+  version: 2.0.0-eb990ab
+portal:
+  version: 2.0.0-fc7e808
 colplanta:
   enabled: true
 upb:
   enabled: true
+harvester:
+  version: 2.0.0-9484d01
+solr:
+  version: 2.0.0-17cff66
+  storage:
+    type: ssd
