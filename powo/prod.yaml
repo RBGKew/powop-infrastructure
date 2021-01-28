@@ -6,8 +6,15 @@ db:
   storage:
     type: ssd
     size: 20
+solr:
+  version: 2.0.0-eb990ab
+  storage:
+    type: ssd
+    size: 20
 geoserver:
   version: 2.0.0-eb990ab
+harvester:
+  version: 2.0.0-9484d01
 portal:
   version: 2.0.0-fc7e808
   replicas: 2
@@ -16,10 +23,3 @@ colplanta:
   enabled: true
 upb:
   enabled: true
-harvester:
-  version: 2.0.0-9484d01
-solr:
-  version: 2.0.0-eb990ab
-  storage:
-    type: ssd
-    size: 20
