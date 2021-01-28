@@ -1,6 +1,5 @@
 ---
 db:
-  version: 2.0.0-eb990ab
   database: powo
   user: powo
   storage:
@@ -15,7 +14,6 @@ db:
       cpu: "100m"
       memory: "500Mi"
 geoserver:
-  version: 2.0.0-eb990ab
   replicas: 1
   database: gis
   user: geoserver
@@ -27,7 +25,6 @@ geoserver:
       cpu: "100m"
       memory: "1Gi"
 portal:
-  version: 2.0.0-fc7e808
   replicas: 1
   resources:
     limits:
@@ -37,7 +34,6 @@ portal:
       cpu: "50m"
       memory: "400Mi"
 harvester:
-  version: 2.0.0-9484d01
   replicas: 1
   resources:
     limits:
@@ -56,7 +52,6 @@ ingress:
       cpu: "50m"
       memory: "10Mi"
 solr:
-  version: 2.0.0-17cff66
   storage:
     type: standard
     size: 10
