@@ -4,13 +4,13 @@ db:
   storage:
     type: ssd
 solr:
-  version: 2.0.0-17cff66
+  version: 2.0.0-12d05dc
   storage:
     type: ssd
 geoserver:
   version: 2.0.0-eb990ab
 harvester:
-  version: 2.0.0-9484d01
+  version: 2.0.0-12d05dc
 portal:
   version: 2.0.0-12d05dc
 colplanta:
