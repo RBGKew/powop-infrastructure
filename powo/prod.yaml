@@ -21,5 +21,7 @@ portal:
   google_analytics_code: GTM-5KXDJXF
 colplanta:
   enabled: true
+colfungi:
+  enabled: false
 upb:
   enabled: true
