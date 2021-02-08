@@ -8,6 +8,9 @@ dns:
   - zone: plantsoftheworld-online
     name: colplanta.plantsoftheworld.online.
     service: ingress-colplanta
+  - zone: plantsoftheworld-online
+    name: colfungi.plantsoftheworld.online.
+    service: ingress-colfungi
 environment: uat
 schedule: "0 12 * * SUN"
 deleteExisting: true
