@@ -3,17 +3,35 @@ db:
   version: 2.0.0-eb990ab
   storage:
     type: ssd
+<<<<<<< HEAD
 geoserver:
   version: 2.0.0-eb990ab
 portal:
   version: 2.0.0-1e32cde
+=======
+solr:
+  version: 2.0.0-12d05dc
+  storage:
+    type: ssd
+geoserver:
+  version: 2.0.0-eb990ab
+harvester:
+  version: 2.0.0-12d05dc
+portal:
+  version: 2.0.0-12d05dc
+>>>>>>> 708b03b186c61c7d575022d7f264fa9c2e261a62
 colplanta:
   enabled: true
-upb:
+colfungi:
   enabled: true
+<<<<<<< HEAD
 harvester:
   version: 2.0.0-9484d01
 solr:
   version: 2.0.0-17cff66
   storage:
     type: ssd
+=======
+upb:
+  enabled: true
+>>>>>>> 708b03b186c61c7d575022d7f264fa9c2e261a62
