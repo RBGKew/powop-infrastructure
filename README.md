@@ -80,7 +80,7 @@ To do this you need to:
 # from the root of the powop project
 mvn clean deploy
 ```
-2. Update the image tags (in `powo/prod.yaml` for prod or `powo/values.yaml` for uat)
+2. Update the image tags (in `powo/prod.yaml` for prod or `powo/values.yaml` for uat) and commit these changes
 3. Push the image tags to Github origin (this is required so that when the builder next runs it uses the same image)
 4. Get the current release `$RELEASE` and the relevant Kubernetes context (`powo-dev` for UAT, `powo-prod` for production) `$RELEASE_CONTEXT`
 ```sh
