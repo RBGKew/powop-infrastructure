@@ -1,18 +1,18 @@
 ---
 db:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-303dd7e
   storage:
     type: ssd
 solr:
-  version: 2.0.0-12d05dc
+  version: 2.0.0-303dd7e
   storage:
     type: ssd
 geoserver:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-303dd7e
 harvester:
-  version: 2.0.0-12d05dc
+  version: 2.0.0-303dd7e
 portal:
-  version: 2.0.0-1e32cde
+  version: 2.0.0-303dd7e
 colplanta:
   enabled: true
 colfungi:
