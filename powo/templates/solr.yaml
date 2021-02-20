@@ -4,6 +4,10 @@ metadata:
   name: solr
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: solr
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

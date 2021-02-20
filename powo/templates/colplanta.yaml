@@ -5,6 +5,10 @@ metadata:
   name: portal-colplanta
 spec:
   replicas: {{ .Values.colplanta.portal.replicas }}
+  selector:
+    matchLabels:
+      name: portal-colplanta
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:
@@ -73,6 +77,10 @@ metadata:
   name: ingress-colplanta
 spec:
   replicas: {{ .Values.colplanta.ingress.replicas }}
+  selector:
+    matchLabels:
+      name: ingress-colplanta
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

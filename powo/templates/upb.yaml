@@ -5,6 +5,10 @@ metadata:
   name: portal-upb
 spec:
   replicas: {{ .Values.upb.portal.replicas }}
+  selector:
+    matchLabels:
+      name: portal-upb
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:
@@ -73,6 +77,10 @@ metadata:
   name: ingress-upb
 spec:
   replicas: {{ .Values.upb.ingress.replicas }}
+  selector:
+    matchLabels:
+      name: ingress-upb
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

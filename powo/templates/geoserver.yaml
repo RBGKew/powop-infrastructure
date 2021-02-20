@@ -4,6 +4,10 @@ metadata:
   name: geodb
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: geodb
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:
@@ -62,6 +66,10 @@ metadata:
   name: geoserver
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: geoserver
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

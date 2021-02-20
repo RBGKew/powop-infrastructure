@@ -5,6 +5,10 @@ metadata:
   name: portal-colfungi
 spec:
   replicas: {{ .Values.colfungi.portal.replicas }}
+  selector:
+    matchLabels:
+      name: portal-colfungi
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:
@@ -73,6 +77,10 @@ metadata:
   name: ingress-colfungi
 spec:
   replicas: {{ .Values.colfungi.ingress.replicas }}
+  selector:
+    matchLabels:
+      name: ingress-colfungi
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

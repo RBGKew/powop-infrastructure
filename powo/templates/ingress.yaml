@@ -4,6 +4,10 @@ metadata:
   name: ingress
 spec:
   replicas: {{ .Values.ingress.replicas }}
+  selector:
+    matchLabels:
+      name: ingress
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

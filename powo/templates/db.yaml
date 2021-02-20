@@ -5,6 +5,10 @@ metadata:
   name: db
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: db
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

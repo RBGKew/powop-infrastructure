@@ -4,6 +4,10 @@ metadata:
   name: portal
 spec:
   replicas: {{ .Values.portal.replicas }}
+  selector:
+    matchLabels:
+      name: portal
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:

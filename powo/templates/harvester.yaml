@@ -4,6 +4,10 @@ metadata:
   name: harvester
 spec:
   replicas: {{ .Values.harvester.replicas }}
+  selector:
+    matchLabels:
+      name: harvester
+      env: {{ .Release.Name }}
   template:
     metadata:
       labels:
