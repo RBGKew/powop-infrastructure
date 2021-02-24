@@ -10,6 +10,9 @@ dns:
   - zone: usefulplantsofboyaca
     name: usefulplantsofboyaca.org.
     service: ingress-upb
+  - zone: colfungi
+    name: colfungi.org.
+    service: ingress-colfungi
 environment: prod
 schedule: "0 12 * * SUN"
 strictErrorChecking: true

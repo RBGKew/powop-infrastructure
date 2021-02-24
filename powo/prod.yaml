@@ -1,25 +1,27 @@
 ---
 db:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-15d2ab6
   database: powo
   user: powo
   storage:
     type: ssd
     size: 20
 geoserver:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-15d2ab6
 portal:
-  version: 2.0.0-fc7e808
+  version: 2.0.0-15d2ab6
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
 colplanta:
   enabled: true
 upb:
   enabled: true
+colfungi:
+  enabled: true
 harvester:
-  version: 2.0.0-9484d01
+  version: 2.0.0-15d2ab6
 solr:
-  version: 2.0.0-eb990ab
+  version: 2.0.0-15d2ab6
   storage:
     type: ssd
     size: 20
