@@ -1,29 +1,27 @@
 # POWO Infrastructure
 
-Kubernetes configs and some utilities for managing Plants of the World Online on Google
-Container Engine. POWO can be installed in one of two ways. 
+Kubernetes configs and utilities for managing Plants of the World Online on Google Cloud.
+
+There are two main deployed components:
+
+1. The builder which orchestrates weekly rebuilds of the POWO site
+2. The POWO site itself
+
+POWO can be installed in one of two ways. 
 
 1. Install directly
 2. Install a "builder" which will deploy and refresh the entire system on a set schedule
 
-## Bootstrapping
+## Contents
 
-Both methods use Helm to deploy the necessary components to your cluster. See Helm 
-[installation instructions](https://github.com/kubernetes/helm/blob/master/docs/install.md)
-to get set up.
+- [Overview](#overview)
+- POWO Site
+- POWO Builder
+- For reference
+  - [Bootstrapping](#bootstrapping)
+  - [Secrets](#secrets)
 
-Once Helm is installed on your machine and the kubernetes cluster, you have to bootstrap
-a few cluster-wide resources by running the `bootstrap.sh` script. This initialises
-storage classes and rbac roles needed for installation.
 
-## Secrets
-
-Secrets are kept in a separate, limited access repository. They are included here as a
-git submodule in the `secrets` folder. If you have access to the repository, you can
-initialize it with:
-
-    $ git submodule init
-    $ git submodule update
 
 ## 1. Direct Install
 
@@ -100,3 +98,28 @@ helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONM
 [Read documentation](./doc/data-management.md) or
 
 [![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_git_repo=https%3A%2F%2Fgithub.com%2FRBGKew%2Fpowop-infrastructure&cloudshell_tutorial=doc%2Fdata-management.md)
+
+
+
+# Reference
+
+Reference documentation for one-time setup etc.
+
+## Bootstrapping
+
+Both methods use Helm to deploy the necessary components to your cluster. See Helm 
+[installation instructions](https://github.com/kubernetes/helm/blob/master/docs/install.md)
+to get set up.
+
+Once Helm is installed on your machine and the kubernetes cluster, you have to bootstrap
+a few cluster-wide resources by running the `bootstrap.sh` script. This initialises
+storage classes and rbac roles needed for installation.
+
+## Secrets
+
+Secrets are kept in a separate, limited access repository. They are included here as a
+git submodule in the `secrets` folder. If you have access to the repository, you can
+initialize it with:
+
+    $ git submodule init
+    $ git submodule update
