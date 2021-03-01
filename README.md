@@ -17,12 +17,13 @@ There are two main deployed components:
   - [Secrets](#secrets)
   - [POWO Builder Install](#powo-builder-install)
   - [POWO Site Install](#powo-site-install)
+  - [Data management](./doc/data-management.md)
 
 # POWO Site
 
 The POWO site deployment is the collection of services that makes up POWO (and related sites) - it combines the Helm configuration in `powo/` with the images built by the `powop` repo build process.
 
-The site is redeployed from scratch every week by the POWO builder - Helm release, data, everything! However this build takes time and only occurs once weekly and is more aimed at keeping data up to date than making releases. For making releases there are two more convenient options than waiting for the weekly build: [image update](#image-update) and [manual build](#manual-build).
+The site is redeployed from scratch every week by the POWO builder - Helm release, data, everything! However this build takes time and only occurs once weekly and is more aimed at keeping data up to date than making releases. For making releases there are two more convenient options than waiting for the weekly build: [image update](#image-update) and [trigger build](#trigger-build).
 
 ## Image update
 
@@ -55,11 +56,7 @@ helm ls
 helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
 ```
 
-## Data management
-
-[Read documentation](./doc/data-management.md)
-
-## Manual build
+## Trigger build
 
 - Update ‘powo-infrastructure/powo/values.yaml’ with your new portal image tag from google cloud container registry.
 - Push the change to Github and Gitlab.
@@ -75,38 +72,24 @@ To cancel a job we need to:
 2. Remove the Helm deployment created as part of the job
 3. Remove the namespace created as part of the job.
 
-**Cancel the job**
+#### Cancel the job
 
 1. Get the job name using `kubectl get jobs -n builder-uat` - you will probably be looking for the youngest job
 2. Delete the job using `kubectl delete jobs/<job_name> -n builder-uat`
 
-**Remove Helm deployment**
+#### Remove Helm deployment
 
 1. Get the name of the Helm release using `helm ls` - you want the release which was created later
 2. Delete the helm release using `helm delete --purge <release_name>`
 
 The release name is also the name of the namespace - you will need it in the following step.
 
-**Remove the namespace**
+#### Remove the namespace
 
 1. Get the namespace name based on the previous step, or run `kubectl get ns` and use the youngest namespace
 2. Delete the old namespace using `kubectl delete ns <namespace_name>`
 
 This step is required since the builder raises an error if there would be more than 3 namespaces at one time.
-
-## Deploy to live
-
-- Run deploy in root
-
-- Update ‘powo-infrastructure/powo/prod.yaml’ with your new portal image tag from google cloud container registry.
-
-- Push the change to Github and Gitlab.
-
-- Switch your Google Cloud context to point to ‘powo-prod’ rather than ‘powo-dev’
-
-- Run the same build command as you’ve been doing for UAT but change the namespace to ‘builder-prod’ e.g.
-
-kubectl create job deploy-manual-live --from=cronjob/builder --namespace=builder-prod
 
 # Reference
 
