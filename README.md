@@ -11,8 +11,8 @@ There are two main deployed components:
 
 - [Overview](#overview)
 - [POWO Site](#powo-site)
-- POWO Builder
-- For reference
+- [POWO Builder](#powo-builder)
+- Reference
   - [Bootstrapping](#bootstrapping)
   - [Secrets](#secrets)
   - [POWO Builder Install](#powo-builder-install)
@@ -23,11 +23,11 @@ There are two main deployed components:
 
 The POWO site deployment is the collection of services that makes up POWO (and related sites) - it combines the Helm configuration in `powo/` with the images built by the `powop` repo build process.
 
-The site is redeployed from scratch every week by the POWO builder - Helm release, data, everything! However this build takes time and only occurs once weekly and is more aimed at keeping data up to date than making releases. For making releases there are two more convenient options than waiting for the weekly build: [image update](#image-update) and [trigger build](#trigger-build).
+The site is redeployed from scratch every week by the POWO builder - Helm release, data, everything! However this build takes time and only occurs once weekly and is more aimed at keeping data up to date than making releases. For making releases there are two more convenient options than waiting for the weekly build: [upgrade](#upgrade) or [build](#trigger-build).
 
-## Image update
+## Upgrade
 
-If you are just making changes to the portal/dashboard it is possible to deploy these without rebuilding all the data.
+If you are just making changes to the portal/dashboard and there _no_ data changes you can deploy without rebuilding all the data.
 
 To do this you need to:
 
@@ -38,19 +38,13 @@ To do this you need to:
 mvn clean deploy
 ```
 
-2. Update the image tags (in `powo/prod.yaml` for prod or `powo/values.yaml` for uat) and commit these changes
+2. Update the image tags (in `powo/prod.yaml` for prod or `powo/uat.yaml` for uat) and commit these changes
 3. Push the image tags to Github origin (this is required so that when the builder next runs it uses the same image)
-4. Get the current release `$RELEASE` and the relevant Kubernetes context (`powo-dev` for UAT, `powo-prod` for production) `$RELEASE_CONTEXT`
-
-```sh
-helm ls
-# the namespace will be something like `uat-x7xns` or `prod-f4cir`
-```
-
-5. Work out required variables:
+4. Work out required variables:
    - `$RELEASE_CONTEXT` - `powo-dev` for UAT, `powo-prod` for production (or what you have set up in your Kubernetes context to access the relevant cluster)
+   - `$RELEASE` - the latest built release, get using `helm ls`
    - `$ENVIRONMENT` - `uat` for UAT, `prod` for production
-6. Update the current release with the latest tags (based on )
+5. Upgrade the current release with the latest tags
 
 ```sh
 helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
