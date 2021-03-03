@@ -31,13 +31,7 @@ If you are just making changes to the portal/dashboard and there _no_ data chang
 
 To do this you need to:
 
-1. Build the image
-
-```sh
-# from the root of the powop project
-mvn clean deploy
-```
-
+1. Build and push Docker images - `mvn clean deploy`
 2. Update the image tags (in `powo/prod.yaml` for prod or `powo/uat.yaml` for uat) and commit these changes
 3. Push the image tags to Github origin (this is required so that when the builder next runs it uses the same image)
 4. Work out required variables:
@@ -50,13 +44,30 @@ mvn clean deploy
 helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
 ```
 
-## Trigger build
+## Build
 
-- Update ‘powo-infrastructure/powo/values.yaml’ with your new portal image tag from google cloud container registry.
-- Push the change to Github and Gitlab.
-- Make sure google cloud context is `powo-dev`
+If you want to deploy new images and also rebuild the data, you can trigger a build job immediately based on the `CronJob` defined by the POWO builder.
 
-`kubectl create job deploy-manual --from=cronjob/builder --namespace=builder-uat`
+1. Build and push Docker images - `mvn clean deploy`
+2. Update the image tags (in `powo/prod.yaml` for prod or `powo/uat.yaml` for uat) and commit these changes
+3. Push the image tags to Github origin (this is required so that when the builder next runs it uses the same image
+4. Work out required variables:
+   - `$RELEASE_CONTEXT` - `powo-dev` for UAT, `powo-prod` for production (or what you have set up in your Kubernetes context to access the relevant cluster)
+   - `$NAMESPACE` - `builder-uat` for UAT, `builder-prod` for production
+
+```sh
+kubectl create job deploy-manual --from=cronjob/builder --namespace=builder-uat --context $RELEASE_CONTEXT
+```
+
+> You may need to change the name from `deploy-manual` if there is an existing one there.
+
+## Automated Build
+
+The automated builds of the POWO site is executed based on the schedule defined in `powo-builder/prod.yaml`/`powo-builder/uat.yaml`
+
+## Managing Automated Builds
+
+You may need to manage the automated builds for example if one has failed or was triggered with incorrect configuration.
 
 ### Cancelling a job
 
@@ -66,24 +77,24 @@ To cancel a job we need to:
 2. Remove the Helm deployment created as part of the job
 3. Remove the namespace created as part of the job.
 
-#### Cancel the job
+#### 1 - Cancel the job
 
 1. Get the job name using `kubectl get jobs -n builder-uat` - you will probably be looking for the youngest job
 2. Delete the job using `kubectl delete jobs/<job_name> -n builder-uat`
 
-#### Remove Helm deployment
+#### 2 - Remove Helm deployment
 
 1. Get the name of the Helm release using `helm ls` - you want the release which was created later
 2. Delete the helm release using `helm delete --purge <release_name>`
 
 The release name is also the name of the namespace - you will need it in the following step.
 
-#### Remove the namespace
+#### 3 - Remove the namespace
 
 1. Get the namespace name based on the previous step, or run `kubectl get ns` and use the youngest namespace
 2. Delete the old namespace using `kubectl delete ns <namespace_name>`
 
-This step is required since the builder raises an error if there would be more than 3 namespaces at one time.
+This step is required since the builder raises an error if there would be more than 2 namespaces at one time.
 
 # Reference
 
