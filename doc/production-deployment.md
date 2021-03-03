@@ -15,41 +15,7 @@ The components that make up the deployment system are:
 * The kubernetes configuration for deploying POWO which lives in ``powop-infrastructure/powo``
 * Deployment credentials and production secrets which live in the private ``powop-secrets`` repo, included in this repo as a submodule ``powop-infrastructure/secrets`` which you can sync if you have access to
 
-## Code Updates
-
-There are two ways of deploying code updates: direct updates and builder updates that will be picked up on the next re-build.
-
-Direct updates should only be done if you need to deploy an urgent fix, or if you have a code change you want to verify in production before letting it run on the scheduled rebuild. Always remember that any direct update you do to the running prod build will be wiped out next time the scheduled rebuild happens unless you also update the builder.
-
-Builder updates will only come into effect the next time a scheduled rebuild happens.
-
-### Both Direct and Builder
-
-1) Update the relevant ``version`` keys in the [values file](./powo/values.yaml) with the latest git short hash which you can get by running in ``powo`` source directory
-
-        git rev-parse --short HEAD
-
-    You usually only need to change ``harvester.version``, or ``portal.version``
-
-2) Make sure updated images are pushed to the google repository. From ``powop`` run
-
-        mvn deploy
-
-> *Note:* `powo-portal` and `powo-static` are tied to the same version number in the
-> helm configurations. So make sure, if you are not pushing all images out, to always
-> push portal and static together
-
 ### Builder Update
-
-3) If you have made changes to values files in the `powo` helm configuration, push
-``powop-infrastructure`` repo to github so that the builder can pick it up on the next
-scheduled rebuild
-
-        git push github master
-
-If you originally checked out powo from gitlab, make sure you have a github remote set up
-
-        git remote add github git@github.com:RBGKew/powop.git
 
 You can skip any of the other steps unless you made builder configuration or code
 changes.
