@@ -162,3 +162,10 @@ Any namespace-specific overrides are in values files named the same as the names
 Upgrade
 
     $ helm upgrade --namespace uat -f uat.yaml -f [path to uat secrets] uat powo/
+
+
+## Github Remote Setup
+
+If you originally checked out powo from Gitlab, make sure you have a Github remote set up so that the builder can access image updates that you make.
+
+    git remote add github git@github.com:RBGKew/powop.git
