@@ -1,15 +1,15 @@
 ---
 db:
-  version: 2.0.0-b307c25
+  version: 2.0.0-136423b
   database: powo
   user: powo
   storage:
     type: ssd
     size: 20
 geoserver:
-  version: 2.0.0-b307c25
+  version: 2.0.0-136423b
 portal:
-  version: 2.0.0-b307c25
+  version: 2.0.0-136423b
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
 colplanta:
@@ -19,9 +19,9 @@ upb:
 colfungi:
   enabled: true
 harvester:
-  version: 2.0.0-b307c25
+  version: 2.0.0-136423b
 solr:
-  version: 2.0.0-b307c25
+  version: 2.0.0-136423b
   storage:
     type: ssd
     size: 20
