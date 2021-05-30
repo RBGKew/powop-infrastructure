@@ -11,7 +11,7 @@ dns:
     name: usefulplantsofboyaca.org.
     service: ingress-upb
   - zone: prod-plantsoftheworld-online
-    name: colplanta.prod.plantsoftheworld.online.
+    name: colfungi.prod.plantsoftheworld.online.
     service: ingress-colfungi
 environment: prod
 schedule: "0 12 * * SUN"
