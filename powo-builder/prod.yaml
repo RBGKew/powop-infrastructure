@@ -4,14 +4,14 @@ dns:
   - zone: plantsoftheworldonline-org
     name: plantsoftheworldonline.org.
     service: ingress
-  - zone: colplanta
-    name: colplanta.org.
+  - zone: prod-plantsoftheworld-online
+    name: colplanta.prod.plantsoftheworld.online.
     service: ingress-colplanta
   - zone: usefulplantsofboyaca
     name: usefulplantsofboyaca.org.
     service: ingress-upb
-  - zone: colfungi
-    name: colfungi.org.
+  - zone: prod-plantsoftheworld-online
+    name: colfungi.prod.plantsoftheworld.online.
     service: ingress-colfungi
 environment: prod
 schedule: "0 12 * * SUN"
