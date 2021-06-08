@@ -44,6 +44,24 @@ To do this you need to:
 helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
 ```
 
+### Upgrade Errors
+
+Occasionally, upgrading the portal does not work properly. The ingress and portal containers become out of sync, so the CSS and JS assets are not loaded. 
+TODO: figure out exactly why this happens.
+
+To fix this, the steps are as follows:
+
+1. Delete the bad containers in the Google Cloud Container Registry
+2. Re-create the containers with `mvn clean deploy`
+3. Restart the broken pods as follows:
+    1. Get the namespace of the broken pods: `kubectl get ns`
+    2. Scale the portal and ingress deployments to 0 pods:
+        1. `kubectl scale --replicas=0 deployments/portal -n uat-nneom`
+        2. `kubectl scale --replicas=0 deployments/ingress -n uat-nneom`
+    3. Scale the portal and ingress deployments to 1 pod:
+        1. `kubectl scale --replicas=1 deployments/portal -n uat-nneom`
+        2. `kubectl scale --replicas=1 deployments/ingress -n uat-nneom`
+
 ## Build
 
 If you want to deploy new images and also rebuild the data, you can trigger a build job immediately based on the `CronJob` defined by the POWO builder.
