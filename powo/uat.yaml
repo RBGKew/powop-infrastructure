@@ -12,7 +12,7 @@ geoserver:
 harvester:
   version: 2.0.0-4b0872b
 portal:
-  version: 2.0.0-c86d732
+  version: 2.0.0-2c3728e
 colplanta:
   enabled: true
 colfungi:
