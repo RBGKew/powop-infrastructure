@@ -19,7 +19,7 @@ upb:
 colfungi:
   enabled: true
 harvester:
-  version: 2.0.0-84f6423
+  version: 2.0.0-e6129cf
 solr:
   version: 2.0.0-84f6423
   storage:
