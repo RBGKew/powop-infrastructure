@@ -12,6 +12,7 @@ portal:
   version: 2.0.0-83bd893
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
+  environment_type: prod
 colplanta:
   enabled: true
 upb:
