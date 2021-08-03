@@ -12,7 +12,7 @@ geoserver:
 harvester:
   version: 2.0.0-819d228
 portal:
-  version: 2.0.0-5073e11
+  version: 2.0.0-8157209
   environment_type: uat
 colplanta:
   enabled: true
