@@ -12,8 +12,10 @@ geoserver:
 harvester:
   version: 2.0.0-819d228
 portal:
-  version: 2.0.0-20921cc
+  version: 2.0.0-27f16b1
   environment_type: uat
+  # TODO: Remove once OneTrust has been verified
+  google_analytics_code: GTM-5KXDJXF
 colplanta:
   enabled: true
 colfungi:
