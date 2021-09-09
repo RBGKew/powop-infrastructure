@@ -10,9 +10,9 @@ solr:
 geoserver:
   version: 2.0.0-819d228
 harvester:
-  version: 2.0.0-819d228
+  version: 2.0.0-852b3e4
 portal:
-  version: 2.0.0-3456d6b
+  version: 2.0.0-852b3e4
   environment_type: uat
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-5KXDJXF
