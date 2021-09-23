@@ -41,7 +41,7 @@ harvester:
       memory: "2.5Gi"
     requests:
       cpu: "50m"
-      memory: "700Mi"
+      memory: "1.5Gi"
 ingress:
   replicas: 1
   resources:
