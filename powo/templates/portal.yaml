@@ -48,6 +48,8 @@ spec:
             - name: GOOGLE_ANALYTICS_CODE
               value: {{ .Values.portal.google_analytics_code }}
 {{- end }}
+            - name: ENVIRONMENT_TYPE
+              value: {{ .Values.portal.environment_type }}
 {{- if .Values.password.cdn }}
             - name: CDN_KEY
               valueFrom:
