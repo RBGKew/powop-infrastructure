@@ -1,16 +1,16 @@
 ---
 db:
-  version: 2.0.0-d9c5a76
+  version: 2.0.0-475baba
   storage:
     type: ssd
 solr:
-  version: 2.0.0-d9c5a76
+  version: 2.0.0-475baba
   storage:
     type: ssd
 geoserver:
-  version: 2.0.0-d9c5a76
+  version: 2.0.0-475baba
 harvester:
-  version: 2.0.0-d9c5a76
+  version: 2.0.0-475baba
 portal:
   version: 2.0.0-475baba
   environment_type: uat
