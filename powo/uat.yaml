@@ -10,7 +10,7 @@ solr:
 geoserver:
   version: 2.0.0-bd21c7d
 harvester:
-  version: 2.0.0-bd21c7d
+  version: 2.0.0-9f73edd
 portal:
   version: 2.0.0-bd21c7d
   environment_type: uat
