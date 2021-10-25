@@ -47,9 +47,9 @@ spec:
             - name: JDBC_DRIVER_USERNAME
               value: {{ .Values.db.user }}
 {{- end }}
-{{- if .Values.portal.google_analytics_code }}
+{{- if .Values.colfungi.google_analytics_code }}
             - name: GOOGLE_ANALYTICS_CODE
-              value: {{ .Values.portal.google_analytics_code }}
+              value: {{ .Values.colfungi.google_analytics_code }}
 {{- end }}
             - name: ENVIRONMENT_TYPE
               value: {{ .Values.portal.environment_type }}

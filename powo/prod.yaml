@@ -15,10 +15,10 @@ portal:
   environment_type: prod
 colplanta:
   enabled: true
-upb:
-  enabled: true
+  google_analytics_code: GTM-KZNXKZM
 colfungi:
   enabled: true
+  google_analytics_code: GTM-K94N6PR
 harvester:
   version: 2.0.0-e4f4144
 solr:
