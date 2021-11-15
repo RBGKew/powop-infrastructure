@@ -1,8 +1,8 @@
 cluster: powo-prod
 deleteExisting: true
 dns:
-  - zone: plantsoftheworldonline-org
-    name: plantsoftheworldonline.org.
+  - zone: prod-plantsoftheworld-online
+    name: prod.plantsoftheworld.online.
     service: ingress
   - zone: prod-plantsoftheworld-online
     name: colplanta.prod.plantsoftheworld.online.
