@@ -1,18 +1,18 @@
 ---
 db:
-  version: 2.0.0-bd21c7d
+  version: 2.0.0-8e7f00f
   storage:
     type: ssd
 solr:
-  version: 2.0.0-bd21c7d
+  version: 2.0.0-8e7f00f
   storage:
     type: ssd
 geoserver:
-  version: 2.0.0-bd21c7d
+  version: 2.0.0-8e7f00f
 harvester:
-  version: 2.0.0-f067d72
+  version: 2.0.0-8e7f00f
 portal:
-  version: 2.0.0-0c70ba8
+  version: 2.0.0-8e7f00f
   environment_type: uat
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-5KXDJXF
