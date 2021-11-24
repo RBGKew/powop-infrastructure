@@ -163,6 +163,12 @@ As an example, to deploy a builder that will build `dev` environment releases, r
 For more details on production operations, please see the [production operations
 manual](./doc/production-deployment.md)
 
+To upgrade the builder:
+
+```
+helm upgrade builder-uat powo-builder/ -f powo-builder/uat.yaml -f secrets/deployer/secrets.yaml -f secrets/uat/secrets.yaml
+```
+
 ## POWO Site install
 
 Then you can install a powo installation by running
