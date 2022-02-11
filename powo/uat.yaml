@@ -16,6 +16,13 @@ portal:
   environment_type: uat
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-5KXDJXF
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "600Mi"
+    requests:
+      cpu: "50m"
+      memory: "300Mi"
 colplanta:
   enabled: true
   # TODO: Remove once OneTrust has been verified
