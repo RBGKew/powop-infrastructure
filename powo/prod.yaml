@@ -26,8 +26,6 @@ colplanta:
 colfungi:
   enabled: true
   google_analytics_code: GTM-K94N6PR
-upb:
-  enabled: true
 harvester:
   version: 2.0.0-12ccc24
 solr:

@@ -3,9 +3,6 @@ dns:
     name: plantsoftheworld.online.
     service: ingress
   - zone: plantsoftheworld-online
-    name: upb.plantsoftheworld.online.
-    service: ingress-upb
-  - zone: plantsoftheworld-online
     name: colplanta.plantsoftheworld.online.
     service: ingress-colplanta
   - zone: plantsoftheworld-online
