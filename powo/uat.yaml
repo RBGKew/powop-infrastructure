@@ -31,5 +31,4 @@ colfungi:
   enabled: true
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-K94N6PR
-upb:
-  enabled: true
+
