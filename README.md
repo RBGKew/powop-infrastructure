@@ -44,6 +44,16 @@ To do this you need to:
 helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
 ```
 
+For UAT:
+```
+helm upgrade RELEASE powo/ -f secrets/uat/secrets.yaml -f powo/uat.yaml
+```
+
+For Prod:
+```
+helm upgrade RELEASE powo/ -f secrets/prod/secrets.yaml -f powo/prod.yaml
+```
+
 ### Upgrade Errors
 
 Occasionally, upgrading the portal does not work properly. The ingress and portal containers become out of sync, so the CSS and JS assets are not loaded. 
