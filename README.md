@@ -202,4 +202,4 @@ Upgrade
 
 If you originally checked out powo from Gitlab, make sure you have a Github remote set up so that the builder can access image updates that you make.
 
-    git remote add github git@github.com:RBGKew/powop.git
+    git remote add github git@github.com:RBGKew/powop-infrastructure.git
