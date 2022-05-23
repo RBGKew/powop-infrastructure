@@ -44,6 +44,16 @@ To do this you need to:
 helm upgrade $RELEASE powo/ --kube-context $RELEASE_CONTEXT -f secrets/$ENVIRONMENT/secrets.yaml -f powo/$ENVIRONMENT.yaml
 ```
 
+For UAT:
+```
+helm upgrade RELEASE powo/ -f secrets/uat/secrets.yaml -f powo/uat.yaml
+```
+
+For Prod:
+```
+helm upgrade RELEASE powo/ -f secrets/prod/secrets.yaml -f powo/prod.yaml
+```
+
 ### Upgrade Errors
 
 Occasionally, upgrading the portal does not work properly. The ingress and portal containers become out of sync, so the CSS and JS assets are not loaded. 
@@ -163,6 +173,12 @@ As an example, to deploy a builder that will build `dev` environment releases, r
 For more details on production operations, please see the [production operations
 manual](./doc/production-deployment.md)
 
+To upgrade the builder:
+
+```
+helm upgrade builder-uat powo-builder/ -f powo-builder/uat.yaml -f secrets/deployer/secrets.yaml -f secrets/uat/secrets.yaml
+```
+
 ## POWO Site install
 
 Then you can install a powo installation by running
@@ -186,4 +202,4 @@ Upgrade
 
 If you originally checked out powo from Gitlab, make sure you have a Github remote set up so that the builder can access image updates that you make.
 
-    git remote add github git@github.com:RBGKew/powop.git
+    git remote add github git@github.com:RBGKew/powop-infrastructure.git

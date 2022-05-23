@@ -1,30 +1,35 @@
 ---
 db:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-12ccc24
   database: powo
   user: powo
   storage:
     type: ssd
     size: 20
 geoserver:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-12ccc24
 portal:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-3911268
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
   environment_type: prod
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "600Mi"
+    requests:
+      cpu: "50m"
+      memory: "400Mi"
 colplanta:
   enabled: true
   google_analytics_code: GTM-KZNXKZM
 colfungi:
   enabled: true
   google_analytics_code: GTM-K94N6PR
-upb:
-  enabled: true
 harvester:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-d99d87c
 solr:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-12ccc24
   storage:
     type: ssd
     size: 20

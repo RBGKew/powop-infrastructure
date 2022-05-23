@@ -1,21 +1,28 @@
 ---
 db:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-fdc6c7f
   storage:
     type: ssd
 solr:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-fdc6c7f
   storage:
     type: ssd
 geoserver:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-fdc6c7f
 harvester:
-  version: 2.0.0-8e7f00f
+  version: 2.0.0-fdc6c7f
 portal:
   version: 2.0.0-f24af42
   environment_type: uat
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-5KXDJXF
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "600Mi"
+    requests:
+      cpu: "50m"
+      memory: "300Mi"
 colplanta:
   enabled: true
   # TODO: Remove once OneTrust has been verified
@@ -24,5 +31,4 @@ colfungi:
   enabled: true
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-K94N6PR
-upb:
-  enabled: true
+
