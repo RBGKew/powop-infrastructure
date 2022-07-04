@@ -4,7 +4,7 @@ db:
   storage:
     type: ssd
 solr:
-  version: 2.0.0-482d72e
+  version: 2.0.0-f1b9a0a
   storage:
     type: ssd
 geoserver:
