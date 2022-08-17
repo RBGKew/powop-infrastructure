@@ -1,6 +1,6 @@
 ---
 db:
-  version: 2.0.0-12ccc24
+  version: 2.0.0-b29bf60
   database: powo
   user: powo
   storage:
@@ -27,9 +27,9 @@ colfungi:
   enabled: true
   google_analytics_code: GTM-K94N6PR
 harvester:
-  version: 2.0.0-d99d87c
+  version: 2.0.0-b29bf60
 solr:
-  version: 2.0.0-12ccc24
+  version: 2.0.0-b29bf60
   storage:
     type: ssd
     size: 20
