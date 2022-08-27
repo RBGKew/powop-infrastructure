@@ -9,7 +9,7 @@ db:
 geoserver:
   version: 2.0.0-3e1255f
 portal:
-  version: 2.0.0-3e1255f
+  version: 2.0.0-5ec5007
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
   environment_type: prod
@@ -27,9 +27,9 @@ colfungi:
   enabled: true
   google_analytics_code: GTM-K94N6PR
 harvester:
-  version: 2.0.0-3e1255f
+  version: 2.0.0-5ec5007
 solr:
-  version: 2.0.0-3e1255f
+  version: 2.0.0-5ec5007
   storage:
     type: ssd
     size: 20
