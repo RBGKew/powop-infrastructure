@@ -12,7 +12,7 @@ geoserver:
 harvester:
   version: 2.0.0-482d72e
 portal:
-  version: 2.0.0-e6f257f
+  version: 2.0.0-17ba7d5
   environment_type: uat
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-5KXDJXF
