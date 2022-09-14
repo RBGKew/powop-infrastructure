@@ -4,13 +4,13 @@ db:
   storage:
     type: ssd
 solr:
-  version: 2.0.0-f1b9a0a
+  version: 2.0.0-dc922d5
   storage:
     type: ssd
 geoserver:
   version: 2.0.0-482d72e
 harvester:
-  version: 2.0.0-482d72e
+  version: 2.0.0-dc922d5
 portal:
   version: 2.0.0-17ba7d5
   environment_type: uat
