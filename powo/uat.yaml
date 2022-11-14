@@ -19,8 +19,8 @@ portal:
   google_analytics_code: GTM-5KXDJXF
   resources:
     limits:
-      cpu: "1000m"
-      memory: "1Gi"
+      cpu: "500m"
+      memory: "750Mi"
     requests:
       cpu: "50m"
       memory: "300Mi"
