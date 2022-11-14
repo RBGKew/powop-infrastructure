@@ -13,6 +13,7 @@ harvester:
   version: 2.0.0-dc922d5
 portal:
   version: 2.0.0-d327913
+  replicas: 2
   environment_type: uat
   # TODO: Remove once OneTrust has been verified
   google_analytics_code: GTM-5KXDJXF
