@@ -1,0 +1,21 @@
+This document holds information for those that have received these
+sources via revision control rather than a packaged release.
+
+It is assumed the developer has initialised the submodules inside the
+repository, either via `--recurse-submodules' during a clone or via
+the `submodule' command:
+
+        git submodule init
+        git submodule update
+
+This is because sensitive information is held separately and included
+here under the `secrets' directory.  You will need access to this
+repository separately; contact the package maintainer.
+---
+Copyright (c).
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".

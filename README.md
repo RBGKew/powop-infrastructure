@@ -14,7 +14,6 @@ There are two main deployed components:
 - [POWO Builder](#powo-builder)
 - Reference
   - [Bootstrapping](#bootstrapping)
-  - [Secrets](#secrets)
   - [POWO Builder Install](#powo-builder-install)
   - [POWO Site Install](#powo-site-install)
   - [Data management](./doc/data-management.md)
@@ -137,15 +136,6 @@ to get set up.
 Once Helm is installed on your machine and the kubernetes cluster, you have to bootstrap
 a few cluster-wide resources by running the `bootstrap.sh` script. This initialises
 storage classes and rbac roles needed for installation.
-
-## Secrets
-
-Secrets are kept in a separate, limited access repository. They are included here as a
-git submodule in the `secrets` folder. If you have access to the repository, you can
-initialize it with:
-
-    $ git submodule init
-    $ git submodule update
 
 ## POWO Builder Install
 
