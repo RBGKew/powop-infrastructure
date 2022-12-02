@@ -72,7 +72,7 @@ into the admin interface yet, so for now there are some useful places to look in
 
 If using cloud shell, authenticate to the powo clusters (you will only need to do this once)
 
-    bin/authenticate
+    make NAME=<cluster> get-credentials
 
 Then connect to the cluster required cluster. Show available clusters with
 
