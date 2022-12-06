@@ -1,0 +1,36 @@
+This document contains details related to working on source from the
+perspective of the maintainer.
+
+When working on or with the Helm charts at the Royal Botanic Gardens,
+Kew access to the existing Kubernetes cluster(s) on Google Cloud
+Platform (GCP) is required.  The console can be found at the location
+below.
+
+        https://console.cloud.google.com/
+
+As the maintainer, the expectation is that control over a pair of
+clusters, `powo-dev' and `powo-prod', was provided during the passing
+of the torch.  If this is not the case, at least one of the developers
+should be able ensure you are given the correct permissions.  See the
+usual files and logs for their details.
+
+When attempting to deploy, it is necessary for work to be externally
+available.  Given permission to push to the blessed repositories then
+it is possible to push to them simultaneously.
+
+        git remote add upstream $internal
+        for remote in $internal $external
+        do
+          git remote set-url --add --push upstream $remote
+        done
+
+Only the trunk should be shared; a remote of this form should not be
+used to share topic branches.
+---
+Copyright (c).
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
