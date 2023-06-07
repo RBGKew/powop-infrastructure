@@ -14,7 +14,6 @@ There are two main deployed components:
 - [POWO Builder](#powo-builder)
 - Reference
   - [Bootstrapping](#bootstrapping)
-  - [Secrets](#secrets)
   - [POWO Builder Install](#powo-builder-install)
   - [POWO Site Install](#powo-site-install)
   - [Data management](./doc/data-management.md)
@@ -138,15 +137,6 @@ Once Helm is installed on your machine and the kubernetes cluster, you have to b
 a few cluster-wide resources by running the `bootstrap.sh` script. This initialises
 storage classes and rbac roles needed for installation.
 
-## Secrets
-
-Secrets are kept in a separate, limited access repository. They are included here as a
-git submodule in the `secrets` folder. If you have access to the repository, you can
-initialize it with:
-
-    $ git submodule init
-    $ git submodule update
-
 ## POWO Builder Install
 
 The POWO builder allows you to re-build the entire stack, and re-load a set of data,
@@ -196,10 +186,3 @@ Any namespace-specific overrides are in values files named the same as the names
 Upgrade
 
     $ helm upgrade --namespace uat -f uat.yaml -f [path to uat secrets] uat powo/
-
-
-## Github Remote Setup
-
-If you originally checked out powo from Gitlab, make sure you have a Github remote set up so that the builder can access image updates that you make.
-
-    git remote add github git@github.com:RBGKew/powop-infrastructure.git
