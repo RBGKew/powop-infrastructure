@@ -9,7 +9,7 @@ db:
 geoserver:
   version: 2.0.0-3e1255f
 portal:
-  version: 2.0.0-4034fa6
+  version: 2.0.0-aeec883
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
   environment_type: prod
