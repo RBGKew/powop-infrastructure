@@ -19,10 +19,10 @@ portal:
   resources:
     limits:
       cpu: "500m"
-      memory: "750Mi"
+      memory: "800Mi"
     requests:
       cpu: "50m"
-      memory: "400Mi"
+      memory: "500Mi"
 colplanta:
   enabled: true
   # TODO: Remove once OneTrust has been verified
