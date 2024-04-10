@@ -16,10 +16,10 @@ portal:
   resources:
     limits:
       cpu: "500m"
-      memory: "900Mi"
+      memory: "1.5G"
     requests:
       cpu: "50m"
-      memory: "750Mi"
+      memory: "1G"
 colplanta:
   enabled: true
   google_analytics_code: GTM-KZNXKZM
