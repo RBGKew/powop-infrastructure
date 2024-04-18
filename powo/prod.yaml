@@ -9,16 +9,16 @@ db:
 geoserver:
   version: 2.0.0-3e1255f
 portal:
-  version: 2.0.0-6936d1d
+  version: 2.0.0-a8f8d68
   replicas: 2
   google_analytics_code: GTM-5KXDJXF
   environment_type: prod
   resources:
     limits:
-      cpu: "500m"
+      cpu: "1.0"
       memory: "1G"
     requests:
-      cpu: "50m"
+      cpu: "100m"
       memory: "750Mi"
 colplanta:
   enabled: true
