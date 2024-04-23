@@ -15,10 +15,10 @@ portal:
   environment_type: prod
   resources:
     limits:
-      cpu: "700m"
-      memory: "1G"
+      cpu: "500m"
+      memory: "1.2G"
     requests:
-      cpu: "300m"
+      cpu: "100m"
       memory: "750Mi"
 colplanta:
   enabled: true
